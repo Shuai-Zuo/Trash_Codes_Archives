@@ -1,0 +1,6 @@
+I:\qiming Exp\EXP\Model\bin\Light.EXP.Model.dll
+I:\qiming Exp\EXP\Model\bin\Light.EXP.Model.pdb
+I:\qiming Exp\EXP\Model\obj\Debug\Model.csprojAssemblyReference.cache
+I:\qiming Exp\EXP\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+I:\qiming Exp\EXP\Model\obj\Debug\Light.EXP.Model.dll
+I:\qiming Exp\EXP\Model\obj\Debug\Light.EXP.Model.pdb

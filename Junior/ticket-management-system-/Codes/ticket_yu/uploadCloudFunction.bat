@@ -1,0 +1,1 @@
+"D:\微信小程序\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-6gdvlf7927fbc9d5 --n quickstartFunctions --r --project "D:\ticket"

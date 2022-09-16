@@ -1,0 +1,4 @@
+Error: syntax error, unexpected SEMICOLON on Line: 1:c5 to 1:c5
+Error: syntax error, unexpected EQUAL, expecting SEMICOLON on Line: 2:c2 to 2:c2
+Error: syntax error, unexpected THEN on Line: 5:c7 to 5:c10
+Error: syntax error, unexpected SEMICOLON, expecting IF or WHILE or LBR or IDN on Line: 6:c13 to 6:c13

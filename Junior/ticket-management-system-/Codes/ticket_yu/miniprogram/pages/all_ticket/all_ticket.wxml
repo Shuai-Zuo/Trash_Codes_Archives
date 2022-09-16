@@ -1,0 +1,22 @@
+<Tabs tabs="{{tabs}}" binditemChange="handleItemChange">
+ <!--  <block wx:if="{{tabs[0].isActive}}">
+    <showInfo showInfo="{{all}}"></showInfo>
+  </block>
+  <block wx:elif="{{tabs[1].isActive}}">
+    <showInfo showInfo="{{live}}"></showInfo>
+  </block>
+  <block wx:elif="{{tabs[2].isActive}}">
+    <showInfo showInfo="{{concert}}"></showInfo>
+  </block>
+  <block wx:elif="{{tabs[3].isActive}}">
+    <showInfo showInfo="{{exhibition}}"></showInfo>
+  </block>
+  <block wx:elif="{{tabs[4].isActive}}">
+    <showInfo showInfo="{{drama}}"></showInfo>
+  </block>
+  <block wx:else>
+    <showInfo showInfo="{{dance}}"></showInfo>
+  </block>
+  -->
+  <showInfo showInfo="{{performList}}"></showInfo>
+</Tabs>

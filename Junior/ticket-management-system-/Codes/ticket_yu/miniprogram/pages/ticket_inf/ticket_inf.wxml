@@ -1,0 +1,120 @@
+<view class="detail">
+  <view class="bg">
+    <view class="bgw">
+      <wxs src="./subStr.wxs" module="strop"></wxs>
+      <image class="show_bg" mode="aspectFill" src="https://636c-cloud1-6gdvlf7927fbc9d5-1305608734.tcb.qcloud.la/img/{{performData.id}}{{strop.subStr(performData.verticalPic)}}"></image>
+    </view>
+  </view>
+  
+  
+  
+  
+  <view class="other_info">
+    <view class="title_wrap">
+      <view class="wrap">
+        <view class="pic_wrap">
+          <wxs src="./subStr.wxs" module="strop"></wxs>
+          <image mode="widthFix" src="https://636c-cloud1-6gdvlf7927fbc9d5-1305608734.tcb.qcloud.la/img/{{performData.id}}{{strop.subStr(performData.verticalPic)}}"/>
+        </view>
+
+        <view class="detail_info_wrap">
+          <view class="show_name">
+            {{performData.name}}
+          </view>
+          <view class="ticket_right">
+            总票代
+          </view>
+          <view class="show_price">
+            ￥{{performData.price}}
+          </view>
+        </view>
+      </view>  
+      <view class="tip">
+        <text class="iconfont icon-notice"></text>
+        <text class="tips_name">不支持退  </text>
+        <text class="iconfont icon-duigou"></text>
+        <text class="tips_name">电子票  </text>
+        <text class="iconfont icon-cuowu"></text>
+        <text class="tips_name">纸质发票  </text>
+      </view>
+      <view class="show_date_wrap">
+        <view class="show_date">{{performData.showtime}}</view>
+        <view class="show_date_info">以现场为准</view>
+      </view>
+      <view class="address_wrap">
+        <view class="city">{{performData.cityname}}</view>
+        <view class="address">{{performData.venue}}</view>
+      </view>
+      <view class="warm_prompt_wrap">
+        <view class="warm_prompt_title">温馨提示</view>
+        <view class="warm_prompt_details">您悉知，因各地疫情情况，演地或您所在地疫情防控政策可能影响您的出行安排或演出的入场验证求，若演出受不可抗力影响延期或取消导致退票的，小麦仅支持退回款，其他因观演发生的费用需由您自行承担。</view>
+      </view>
+      <view class="purchase_wrap">
+        <view class="purchase_title">购票须知</view>
+        <view class="purchase_tip">
+          <view class="pur_little_tip">限购规则</view>
+          <view class="pur_details">每笔订单最多购买6张</view>
+          <view class="pur_little_tip">退票/换票规则</view>
+          <view class="pur_details">票品为有价证券，非普通商品，其背承载的文化服务具有时效性，稀缺性等特征，不支持退换。</view>
+          <view class="pur_little_tip">入场规则</view>
+          <view class="pur_details">须打开【APP-我的票夹】扫码入场，图无效。</view>
+          <view class="pur_little_tip">儿童购票</view>
+          <view class="pur_details">1.2米以上凭成人票入场，1.2米以下绝入场</view>
+          <view class="pur_little_tip">发票说明</view>
+          <view class="pur_details">演出开始前，去【APP-订单详情页】交发票申请。演出结束后1个月左右邮寄给你，需自付邮费。</view>
+          <view class="pur_little_tip">实名购票规则</view>
+          <view class="pur_details">一个订单对应一个证件；证件支持：身份证</view>
+          <view class="pur_little_tip">异常排单说明</view>
+          <view class="pur_details">对于异常订购行为，大麦网有权在订成立或者生效之后取消相应订单。异常订购行为包括但不限于以下形： （1）通过同一ID订购超出限购张数的订单。 （2）经合理判认为非真实消费者的下单行为，包括但不限于通过批量相同或虚构支付账号、收货地址（包括下单时填写及最终实际收货地址）、收人、电话号码订购超出限购张数的订单。</view>
+        </view>
+      </view>
+      <view class="watch_info">
+        <view class="watch_title">观演须知</view>
+        <view class="watch_tips">
+          <view class="pur_little_tip">演出时长</view>
+          <view class="pur_details">约90分钟（以现场为准）</view>
+          <view class="pur_little_tip">入场时间</view>
+          <view class="pur_details">请于开始前约30分钟入场</view>
+          <view class="pur_little_tip">最低演出时长</view>
+          <view class="pur_details">90</view>
+          <view class="pur_little_tip">禁止携带物品</view>
+          <view class="pur_details">由于安保和版权的原因，大多数演出展览及比赛场所禁止携带食品、饮料、专业摄录设备、打火机等品，请您注意现场工作人员和广播的提示，予以配合。</view>
+          <view class="pur_little_tip">寄存说明</view>
+          <view class="pur_details">无寄存处,无寄存处，请自行保管携物品</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="btn_tool">
+    <view class="tool_item">
+      <view class="iconfont icon-fuwupingjia-kefu"></view>
+      <view class="btn_detail">客服</view> 
+      <button open-type="contact"></button>
+    </view>
+    
+    <view class="tool_item">
+      <view class="iconfont icon-fenxiang"></view>
+      <view class="btn_detail">分享</view>
+      <button open-type="share"></button>
+    </view>
+    <view class="tool_item" bindtap="handle_love_tap">
+      <block wx:if="{{love}}">
+        <view class="iconfont icon-xinaixin-fuben"></view>
+      </block>
+      <block wx:else>
+        <view class="iconfont icon-love-o"></view>
+      </block>
+        
+      
+      <view class="btn_detail">想看</view>
+      
+    </view>
+    <view class="tool_item btn_cart" bindtap="handleCartAdd">
+      加入订单
+    </view>
+    <view class="tool_item btn_buy" bindtap="handlePay">
+      立即购买
+    </view>
+  </view>
+</view>

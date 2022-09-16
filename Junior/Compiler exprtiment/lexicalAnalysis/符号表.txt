@@ -1,0 +1,7 @@
+a:	file: 1.txt,	lineno: 3,	startCol: 4	endCol: 4	type: UNKNOWN
+acc:	file: 1.txt,	lineno: 1,	startCol: 32	endCol: 34	type: UNKNOWN
+b:	file: 1.txt,	lineno: 3,	startCol: 6	endCol: 6	type: UNKNOWN
+c:	file: 1.txt,	lineno: 3,	startCol: 28	endCol: 28	type: UNKNOWN
+data:	file: 1.txt,	lineno: 1,	startCol: 7	endCol: 10	type: UNKNOWN
+x:	file: 1.txt,	lineno: 1,	startCol: 42	endCol: 42	type: UNKNOWN
+xx:	file: 1.txt,	lineno: 1,	startCol: 36	endCol: 37	type: UNKNOWN

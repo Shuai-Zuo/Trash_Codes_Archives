@@ -1,0 +1,91 @@
+|floor
+request_in_seq[0] <= indoor_request:inst.request_in_seq[0]
+request_in_seq[1] <= indoor_request:inst.request_in_seq[1]
+request_in_seq[2] <= indoor_request:inst.request_in_seq[2]
+request_in_seq[3] <= indoor_request:inst.request_in_seq[3]
+rst => indoor_request:inst.rst
+rst => outdoor_request:inst6.rst
+opnd => indoor_request:inst.opnd
+opnd => outdoor_request:inst6.opnd
+current_floor[0] => indoor_request:inst.current_floor[0]
+current_floor[0] => outdoor_request:inst6.current_floor[0]
+current_floor[1] => indoor_request:inst.current_floor[1]
+current_floor[1] => outdoor_request:inst6.current_floor[1]
+request_in[0] => indoor_request:inst.request_in[0]
+request_in[1] => indoor_request:inst.request_in[1]
+request_in[2] => indoor_request:inst.request_in[2]
+request_in[3] => indoor_request:inst.request_in[3]
+request_out_seq[0] <= outdoor_request:inst6.request_out_seq[0]
+request_out_seq[1] <= outdoor_request:inst6.request_out_seq[1]
+request_out_seq[2] <= outdoor_request:inst6.request_out_seq[2]
+request_out_seq[3] <= outdoor_request:inst6.request_out_seq[3]
+request_out_seq[4] <= outdoor_request:inst6.request_out_seq[4]
+request_out_seq[5] <= outdoor_request:inst6.request_out_seq[5]
+request_out_down[0] => outdoor_request:inst6.request_out_down[0]
+request_out_down[1] => outdoor_request:inst6.request_out_down[1]
+request_out_down[2] => outdoor_request:inst6.request_out_down[2]
+request_out_up[0] => outdoor_request:inst6.request_out_up[0]
+request_out_up[1] => outdoor_request:inst6.request_out_up[1]
+request_out_up[2] => outdoor_request:inst6.request_out_up[2]
+
+
+|floor|indoor_request:inst
+request_in[0] => Decoder0.IN3
+request_in[1] => Decoder0.IN2
+request_in[2] => Decoder0.IN1
+request_in[3] => Decoder0.IN0
+rst => request_in_seq[1]$latch.ACLR
+rst => request_in_seq[0]$latch.ACLR
+rst => request_in_seq[2]$latch.ACLR
+rst => request_in_seq[3]$latch.ACLR
+opnd => request_in_seq[0].IN1
+opnd => request_in_seq[1].IN1
+opnd => request_in_seq[2].IN1
+opnd => request_in_seq[3].IN1
+current_floor[0] => Equal0.IN1
+current_floor[0] => Equal1.IN0
+current_floor[0] => Equal2.IN1
+current_floor[0] => Equal3.IN1
+current_floor[1] => Equal0.IN0
+current_floor[1] => Equal1.IN1
+current_floor[1] => Equal2.IN0
+current_floor[1] => Equal3.IN0
+request_in_seq[0] <= request_in_seq[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_in_seq[1] <= request_in_seq[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_in_seq[2] <= request_in_seq[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_in_seq[3] <= request_in_seq[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|floor|outdoor_request:inst6
+request_out_up[0] => Decoder0.IN2
+request_out_up[1] => Decoder0.IN1
+request_out_up[2] => Decoder0.IN0
+request_out_down[0] => Decoder0.IN5
+request_out_down[1] => Decoder0.IN4
+request_out_down[2] => Decoder0.IN3
+rst => request_out_seq[3]$latch.ACLR
+rst => request_out_seq[2]$latch.ACLR
+rst => request_out_seq[1]$latch.ACLR
+rst => request_out_seq[0]$latch.ACLR
+rst => request_out_seq[4]$latch.ACLR
+rst => request_out_seq[5]$latch.ACLR
+opnd => request_out_seq[2].IN1
+opnd => request_out_seq[3].IN1
+opnd => request_out_seq[4].IN1
+opnd => request_out_seq[5].IN1
+current_floor[0] => Equal0.IN1
+current_floor[0] => Equal1.IN0
+current_floor[0] => Equal2.IN1
+current_floor[0] => Equal3.IN1
+current_floor[1] => Equal0.IN0
+current_floor[1] => Equal1.IN1
+current_floor[1] => Equal2.IN0
+current_floor[1] => Equal3.IN0
+request_out_seq[0] <= request_out_seq[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_out_seq[1] <= request_out_seq[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_out_seq[2] <= request_out_seq[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_out_seq[3] <= request_out_seq[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_out_seq[4] <= request_out_seq[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+request_out_seq[5] <= request_out_seq[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

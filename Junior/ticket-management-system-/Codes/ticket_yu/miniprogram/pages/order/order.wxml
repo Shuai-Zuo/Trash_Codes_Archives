@@ -1,0 +1,27 @@
+<view class="collect_main">
+  <view class="collect_content">
+    <view class="show_wrap">
+      <view class="order_for" wx:for="{{order}}">
+        <view class="order_title">订单</view>
+        <navigator class="show_item" wx:for="{{item}}" wx:key="id" wx:for-item="content" url="/pages/ticket_inf/ticket_inf?peid={{content.id}}">
+          <view class="show_pic_wrap">
+            <wxs src="./subStr.wxs" module="strop"></wxs>
+            <image mode="widthFix" src="https://636c-cloud1-6gdvlf7927fbc9d5-1305608734.tcb.qcloud.la/img/{{content.id}}{{strop.subStr(content.verticalPic)}}"/>
+              
+          </view>
+          <view class="show_info_wrap">
+            <view class="show_name">
+              {{content.name}}
+            </view>
+            <view class="show_price">
+              <view>￥{{content.price}}</view>
+              <view class = "amount">
+                数量：{{content.num}}
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+DATAS SEGMENT     
+	BUF DB 16,?,16 DUP(?)     
+	MSGIN DB 'Input:$'
+	BUF2 DB 5 DUP('$')
+	COUNTER DB 0
+	MSGOUT DB 'The reversed order is:$'
+	MSGERR DB 0AH,'Invalid Input!$'
+DATAS ENDS
+STACK1 SEGMENT PARA STACK
+    DW 100H DUP(0)
+STACK1 ENDS
+CODES SEGMENT     
+ASSUME CS:CODES,DS:DATAS 
+START:     
+	MOV AX,DATAS     
+	MOV DS,AX	
+	LEA DX,MSGIN     
+	MOV AH,09H
+	INT 21H ;输出'Input:$'
+	LEA DX,BUF     
+	MOV AH,0AH     
+	INT 21H  ;输入字符串存入BUF
+	LEA SI,BUF[2];取BUF[2]地址
+	MOV BL,BUF[1];将字符串长度存入BL
+	ADD SI,BX;使SI指向BUF字符串的末尾
+	SUB SI,3;使SI指向BUF字符串的末尾
+	MOV DL,4;获取循环次数
+	LEA DI,BUF2[3]
+OUT12:
+	MOV AL,[SI]
+	MOV [DI],AL
+	DEC DI
+	DEC SI
+	DEC DL
+	CMP DL,0
+	JNE OUT12
+    
+	
+
+CODES ENDS 
+END START
+
+
+
+
+
+
+
+

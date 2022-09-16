@@ -1,0 +1,8 @@
+a3:	file: data2_2.txt,	lineno: 2,	startCol: 8	endCol: 9	type: UNKNOWN
+b:	file: data2_2.txt,	lineno: 8,	startCol: 3	endCol: 3	type: UNKNOWN
+c:	file: data2_2.txt,	lineno: 8,	startCol: 1	endCol: 1	type: UNKNOWN
+d:	file: data2_2.txt,	lineno: 8,	startCol: 7	endCol: 7	type: UNKNOWN
+x:	file: data2_2.txt,	lineno: 7,	startCol: 6	endCol: 6	type: UNKNOWN
+x2:	file: data2_2.txt,	lineno: 3,	startCol: 8	endCol: 9	type: UNKNOWN
+y:	file: data2_2.txt,	lineno: 7,	startCol: 2	endCol: 2	type: UNKNOWN
+z:	file: data2_2.txt,	lineno: 7,	startCol: 4	endCol: 4	type: UNKNOWN

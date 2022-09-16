@@ -1,0 +1,29 @@
+module floor(inc_Floor,red_Floor,rst,cur_Floor);
+input inc_Floor,red_Floor,rst;
+output [1:0] cur_Floor;
+reg [1:0] cur_Floor;
+reg floor_clk;
+always @ (rst or inc_Floor or red_Floor)
+begin
+if(rst)
+floor_clk=0;
+else
+begin
+if(inc_Floor || red_Floor)
+floor_clk=1;
+else
+floor_clk=0;
+end
+end
+always@(posedge floor_clk or posedge rst)
+begin
+if(rst==1)
+cur_Floor=2'b00;
+else if(inc_Floor==1)
+cur_Floor=cur_Floor+1;
+else    if(red_Floor==1)
+cur_Floor=cur_Floor-1;
+else
+cur_Floor=cur_Floor;
+end
+endmodule

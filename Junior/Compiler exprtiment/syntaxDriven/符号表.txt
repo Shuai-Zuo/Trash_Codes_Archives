@@ -1,0 +1,3 @@
+a:	file: error.txt,	lineno: 7,	startCol: 1	endCol: 1	type: UNKNOWN
+b:	file: error.txt,	lineno: 7,	startCol: 3	endCol: 3	type: UNKNOWN
+c:	file: error.txt,	lineno: 7,	startCol: 5	endCol: 5	type: UNKNOWN

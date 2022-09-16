@@ -1,0 +1,27 @@
+module keyboard_scan(clk,rst,swc,swr)
+input[3:0]swr;
+output[3:0]swc;
+reg[3:0]swc;
+reg scanned,pressed;
+input clk,rst;
+always@(posedge clk or posedge rst)
+begin
+	if(!rst)
+		swc<=4'b0000;
+	else
+		if(pressed)
+			case(scanned)
+				1'b0:
+				begin
+					scanned<=1'b1;
+					swc<=4'b1110;
+				end
+				1'b1:
+					swc<={swc[0],swc[3:1]};
+			endcase
+		else
+		begin
+			swc<=4'b0000;
+			scanned<=1'b0;
+		end
+end

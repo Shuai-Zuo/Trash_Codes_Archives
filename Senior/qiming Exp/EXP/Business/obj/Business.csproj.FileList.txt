@@ -1,0 +1,11 @@
+bin\Light.EXP.Business.dll
+bin\Light.EXP.Business.pdb
+bin\Light.EXP.DataAccess.dll
+bin\Light.EXP.Model.dll
+bin\Light.EXP.SystemFrameworks.dll
+bin\Light.EXP.SystemFrameworks.pdb
+bin\Light.EXP.DataAccess.pdb
+bin\Light.EXP.Model.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Light.EXP.Business.dll
+obj\Debug\Light.EXP.Business.pdb

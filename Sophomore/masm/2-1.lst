@@ -1,0 +1,120 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/22/20 19:48:39
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT     
+ 0000 1E 00				BUF DB 30,?,30 DUP(?)     
+       001E [
+        00
+       ]
+ 0020 0D 0A				REV DB 0DH,0AH,30 DUP('$')
+       001E [
+        24
+       ]
+ 0040 49 6E 70 75 74 3A			MSGIN DB 'Input:$'
+       24
+ 0047 54 68 65 20 72 65			MSGOUT DB 'The reversed order is:$'
+       76 65 72 73 65 64
+       20 6F 72 64 65 72
+       20 69 73 3A 24
+ 005E 0A 49 6E 76 61 6C			MSGERR DB 0AH,'Invalid Input!$'
+       69 64 20 49 6E 70
+       75 74 21 24
+ 006E				DATAS ENDS
+ 0000				STACK1 SEGMENT PARA STACK
+ 0000  0020 [			    DW 20H DUP(0)
+        0000
+       ]
+ 0040				STACK1 ENDS
+ 0000				CODES SEGMENT     
+				ASSUME CS:CODES,DS:DATAS 
+ 0000				START:     
+ 0000  B8 ---- R			MOV AX,DATAS     
+ 0003  8E D8				MOV DS,AX	
+ 0005  8D 16 0040 R			LEA DX,MSGIN     
+ 0009  B4 09				MOV AH,09H
+ 000B  CD 21				INT 21H
+ 000D  8D 16 0000 R			LEA DX,BUF     
+ 0011  B4 0A				MOV AH,0AH     
+ 0013  CD 21				INT 21H   
+ 0015  8D 36 0002 R			LEA SI,BUF[2]
+ 0019  8D 3E 0022 R			LEA DI,REV[2]
+ 001D  8A 1E 0001 R			MOV BL,BUF[1]
+ 0021  03 F3				ADD SI,BX
+ 0023  8A 0E 0001 R			MOV CL,BUF+1 
+ 0027				REVERSE:     
+ 0027  4E				DEC SI
+ 0028  8A 04				MOV AL,[SI]
+ 002A  3C 61				CMP AL,'a'
+ 002C  72 29				JB ERR
+ 002E  3C 7A				CMP AL,'z' 
+ 0030  77 25				JA ERR    
+ 0032  88 05				MOV [DI],AL
+ 0034  47				INC DI     
+ 0035  E2 F0				LOOP REVERSE 
+ 0037  B2 0A				MOV DL,0AH
+ 0039  B4 02			    MOV AH,02H
+ 003B  CD 21			    INT 21H
+ 003D  8D 16 0047 R			LEA DX,MSGOUT     
+ 0041  B4 09				MOV AH,09H     
+ 0043  CD 21				INT 21H     
+ 0045  8D 16 0020 R			LEA DX,REV     
+ 0049  B4 09				MOV AH,09H     
+ 004B  CD 21				INT 21H
+ 004D  B2 0A				MOV DL,0AH
+ 004F  B4 02			    MOV AH,02H
+ 0051  CD 21			    INT 21H
+ 0053  B4 4C				MOV AH,4CH     
+ 0055  CD 21				INT 21H 
+ 0057				ERR:
+ 0057  8D 16 005E R			LEA DX,MSGERR     
+ 005B  B4 09				MOV AH,09H 
+ 005D  CD 21				INT 21H 
+ 005F  B2 0A				MOV DL,0AH
+ 0061  B4 02			    MOV AH,02H
+ 0063  CD 21			    INT 21H
+ 0065  EB 99				JMP START   
+					;MOV AH,4CH     
+					;INT 21H 
+ 0067				CODES ENDS 
+				END START
+
+
+
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    03/22/20 19:48:39
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 0067	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 006E	  Para	  Private 
+STACK1 . . . . . . . . . . . . .	16 Bit	 0040	  Para	  Stack	  
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+BUF  . . . . . . . . . . . . . .	Byte	 0000	  DATAS	
+ERR  . . . . . . . . . . . . . .	L Near	 0057	  CODES	
+MSGERR . . . . . . . . . . . . .	Byte	 005E	  DATAS	
+MSGIN  . . . . . . . . . . . . .	Byte	 0040	  DATAS	
+MSGOUT . . . . . . . . . . . . .	Byte	 0047	  DATAS	
+REVERSE  . . . . . . . . . . . .	L Near	 0027	  CODES	
+REV  . . . . . . . . . . . . . .	Byte	 0020	  DATAS	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+
+	   0 Warnings
+	   0 Errors

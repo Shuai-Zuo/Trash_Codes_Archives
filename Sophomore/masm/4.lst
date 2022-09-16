@@ -1,0 +1,243 @@
+Microsoft (R) Macro Assembler Version 6.11		    07/25/20 13:19:54
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATA SEGMENT
+ 0000 00				COUNT DB 00H
+ 0001 30				COUNT2 DB 30H
+ 0002 0F				LINE DB 0FH
+ 0003 09 09 54 68 65 20			MSGIN1 DB 09H,09H,'The ASCII Table',0AH,'$' 
+       41 53 43 49 49 20
+       54 61 62 6C 65 0A
+       24
+ 0016 20 20 20 30 20 20			MSGHEAD DB '   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F',0AH,'$'
+       31 20 20 32 20 20
+       33 20 20 34 20 20
+       35 20 20 36 20 20
+       37 20 20 38 20 20
+       39 20 20 41 20 20
+       42 20 20 43 20 20
+       44 20 20 45 20 20
+       46 0A 24
+ 0049				DATA ENDS
+ 0000				STACKS SEGMENT STACK
+ 0000  0100 [			  DB 100h DUP(0)
+        00
+       ]
+ 0100				STACKS ENDS
+ 0000				CODE SEGMENT
+				   ASSUME DS:DATA,SS:STACKS,CS:CODE
+ 0000				START:	
+ 0000  B8 ---- R			MOV AX,DATA
+ 0003  8E D8				MOV DS,AX
+ 0005  8D 16 0003 R			LEA DX,MSGIN1
+ 0009  B4 09			    MOV AH,09H
+ 000B  CD 21			    INT 21H
+ 000D  8D 16 0016 R		    LEA DX,MSGHEAD;输出列表头
+ 0011  B4 09			    MOV AH,09H
+ 0013  CD 21			    INT 21H
+ 0015  8A 16 0001 R		    MOV DL,COUNT2;输出第一个行表头
+ 0019  B4 02			    MOV AH,02H
+ 001B  CD 21			    INT 21H
+ 001D  B2 20			    MOV DL,' '
+ 001F  B4 02			    MOV AH,02H
+ 0021  CD 21			    INT 21H
+ 0023  B2 20			    MOV DL,' '
+ 0025  B4 02			    MOV AH,02H
+ 0027  CD 21			    INT 21H
+ 0029  FE 06 0001 R		    INC COUNT2
+ 002D				LOP:
+ 002D  80 3E 0000 R 7F			CMP COUNT,7FH;ascii码上限
+ 0032  76 03 E9 0091			JA ENDPROG1
+ 0037  80 3E 0000 R 09			CMP COUNT,09H;ascii码为09h 0ah 0dh 1bh需要做特殊处理
+ 003C  74 3A				JE PRINTSPACE
+ 003E  80 3E 0000 R 0A			CMP COUNT,0AH
+ 0043  74 33				JE PRINTSPACE
+ 0045  80 3E 0000 R 0D			CMP COUNT,0DH
+ 004A  74 2C				JE PRINTSPACE
+ 004C  80 3E 0000 R 1B			CMP COUNT,1BH
+ 0051  74 25				JE PRINTSPACE
+					;CALL PRINT
+ 0053  8A 16 0000 R			MOV DL,COUNT
+ 0057  B4 02			    MOV AH,02H
+ 0059  CD 21			    INT 21H;输出ascii码
+ 005B  B2 20			    MOV DL,' '
+ 005D  B4 02			    MOV AH,02H
+ 005F  CD 21			    INT 21H
+ 0061  B2 20			    MOV DL,' '
+ 0063  B4 02			    MOV AH,02H
+ 0065  CD 21			    INT 21H
+ 0067  FE 06 0000 R		    INC COUNT
+ 006B  80 3E 0002 R 00		    CMP LINE,0
+ 0070  74 29			    JE CHANGELINE;判断是否需要换行
+ 0072  FE 0E 0002 R		    DEC LINE
+ 0076  EB B5				JMP LOP
+					
+ 0078				PRINTSPACE:;特殊处理字符输出空格
+					;CALL PRINT
+ 0078  B2 20				MOV DL,' '
+ 007A  B4 02			    MOV AH,02H
+ 007C  CD 21			    INT 21H
+ 007E  B2 20			    MOV DL,' '
+ 0080  B4 02			    MOV AH,02H
+ 0082  CD 21			    INT 21H
+ 0084  B2 20			    MOV DL,' '
+ 0086  B4 02			    MOV AH,02H
+ 0088  CD 21			    INT 21H
+ 008A  FE 06 0000 R		    INC COUNT
+ 008E  80 3E 0002 R 00		    CMP LINE,0
+ 0093  74 06			    JE CHANGELINE
+ 0095  FE 0E 0002 R		    DEC LINE
+ 0099  EB 92				JMP LOP
+					
+ 009B				CHANGELINE:	
+ 009B  B2 0A				MOV DL,0AH
+ 009D  B4 02			    MOV AH,02H
+ 009F  CD 21			    INT 21H
+ 00A1  C6 06 0002 R 0F		    MOV LINE,0FH;重置换行指示数line的值
+ 00A6  80 3E 0001 R 38		    CMP COUNT2, 38H;判断行表头大小，应小于8
+ 00AB  74 18			    JE PAS
+ 00AD  8A 16 0001 R		    MOV DL,COUNT2;输出行表头
+ 00B1  B4 02			    MOV AH,02H
+ 00B3  CD 21			    INT 21H
+ 00B5  B2 20			    MOV DL,' '
+ 00B7  B4 02			    MOV AH,02H
+ 00B9  CD 21			    INT 21H
+ 00BB  B2 20			    MOV DL,' '
+ 00BD  B4 02			    MOV AH,02H
+ 00BF  CD 21			    INT 21H
+ 00C1  FE 06 0001 R		    INC COUNT2
+ 00C5				PAS:
+ 00C5  E9 FF65			    JMP LOP
+
+ 00C8				ENDPROG1:	
+ 00C8  B4 4C				MOV AH,4CH
+ 00CA  CD 21			    INT 21H
+					
+					
+
+
+				;PRINT PROC NEAR;输出三位以下十进制数
+					;;LEA DX,MSGOUT
+				    ;;MOV AH,09H
+				    ;;INT 21H
+				  	;MOV BX,0AH
+				  	;MOV AL,COUNT
+				  	;XOR AH,AH
+				  	;XOR DX,DX
+				  	;DIV BX
+				  	;CMP AX,0AH
+				  	;JAE BIG1
+				  	;CMP AX,0H
+				  	;JE SMALL
+				  	;PUSH AX
+				    ;MOV DH,DL
+				    ;MOV DL,' '
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;POP AX
+				  	;MOV DL,AL
+				  	;ADD DL,30H
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;MOV DL,DH
+				    ;ADD DL,30H
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;MOV DL,':'
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;JMP EXIT
+				;BIG1:
+					;PUSH DX
+					;MOV BX,0AH
+					;XOR DX,DX
+					;DIV BX
+					;MOV DH,DL
+				  	;MOV DL,AL
+				  	;ADD DL,30H
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;MOV DL,DH
+				    ;ADD DL,30H
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;POP DX
+				    ;ADD DL,30H
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;MOV DL,':'
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;JMP EXIT
+				;SMALL:
+				    ;MOV DH,DL
+				    ;MOV DL,' '
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;MOV DL,' '
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;MOV DL,DH
+				    ;ADD DL,30H
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;MOV DL,':'
+				    ;MOV AH,02H
+				    ;INT 21H
+				    ;JMP EXIT   
+				;EXIT:
+					;RET  	
+				;PRINT ENDP  
+ 00CC				CODE ENDS
+				   END START
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    07/25/20 13:19:54
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODE . . . . . . . . . . . . . .	16 Bit	 00CC	  Para	  Private 
+DATA . . . . . . . . . . . . . .	16 Bit	 0049	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0100	  Para	  Stack	  
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+CHANGELINE . . . . . . . . . . .	L Near	 009B	  CODE	
+COUNT2 . . . . . . . . . . . . .	Byte	 0001	  DATA	
+COUNT  . . . . . . . . . . . . .	Byte	 0000	  DATA	
+ENDPROG1 . . . . . . . . . . . .	L Near	 00C8	  CODE	
+LINE . . . . . . . . . . . . . .	Byte	 0002	  DATA	
+LOP  . . . . . . . . . . . . . .	L Near	 002D	  CODE	
+MSGHEAD  . . . . . . . . . . . .	Byte	 0016	  DATA	
+MSGIN1 . . . . . . . . . . . . .	Byte	 0003	  DATA	
+PAS  . . . . . . . . . . . . . .	L Near	 00C5	  CODE	
+PRINTSPACE . . . . . . . . . . .	L Near	 0078	  CODE	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODE	
+
+	   0 Warnings
+	   0 Errors

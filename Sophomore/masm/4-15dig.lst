@@ -1,0 +1,98 @@
+Microsoft (R) Macro Assembler Version 6.11		    05/06/20 11:39:57
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT     
+ 0000 10 00				BUF DB 16,?,16 DUP(?)     
+       0010 [
+        00
+       ]
+ 0012 49 6E 70 75 74 3A			MSGIN DB 'Input:$'
+       24
+ 0019  0005 [				BUF2 DB 5 DUP('$')
+        24
+       ]
+ 001E 00				COUNTER DB 0
+ 001F 54 68 65 20 72 65			MSGOUT DB 'The reversed order is:$'
+       76 65 72 73 65 64
+       20 6F 72 64 65 72
+       20 69 73 3A 24
+ 0036 0A 49 6E 76 61 6C			MSGERR DB 0AH,'Invalid Input!$'
+       69 64 20 49 6E 70
+       75 74 21 24
+ 0046				DATAS ENDS
+ 0000				STACK1 SEGMENT PARA STACK
+ 0000  0100 [			    DW 100H DUP(0)
+        0000
+       ]
+ 0200				STACK1 ENDS
+ 0000				CODES SEGMENT     
+				ASSUME CS:CODES,DS:DATAS 
+ 0000				START:     
+ 0000  B8 ---- R			MOV AX,DATAS     
+ 0003  8E D8				MOV DS,AX	
+ 0005  8D 16 0012 R			LEA DX,MSGIN     
+ 0009  B4 09				MOV AH,09H
+ 000B  CD 21				INT 21H ;输出'Input:$'
+ 000D  8D 16 0000 R			LEA DX,BUF     
+ 0011  B4 0A				MOV AH,0AH     
+ 0013  CD 21				INT 21H  ;输入字符串存入BUF
+ 0015  8D 36 0002 R			LEA SI,BUF[2];取BUF[2]地址
+ 0019  8A 1E 0001 R			MOV BL,BUF[1];将字符串长度存入BL
+ 001D  03 F3				ADD SI,BX;使SI指向BUF字符串的末尾
+ 001F  83 EE 03				SUB SI,3;使SI指向BUF字符串的末尾
+ 0022  B2 04				MOV DL,4;获取循环次数
+ 0024  8D 3E 001C R			LEA DI,BUF2[3]
+ 0028				OUT12:
+ 0028  8A 04				MOV AL,[SI]
+ 002A  88 05				MOV [DI],AL
+ 002C  4F				DEC DI
+ 002D  4E				DEC SI
+ 002E  FE CA				DEC DL
+ 0030  80 FA 00				CMP DL,0
+ 0033  75 F3				JNE OUT12
+				    
+ 0035  8D 16 0019 R			LEA DX,BUF2
+ 0039  B4 09				MOV AH,09H
+ 003B  CD 21				INT 21H
+
+ 003D				CODES ENDS 
+				END START
+
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    05/06/20 11:39:57
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 003D	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0046	  Para	  Private 
+STACK1 . . . . . . . . . . . . .	16 Bit	 0200	  Para	  Stack	  
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+BUF2 . . . . . . . . . . . . . .	Byte	 0019	  DATAS	
+BUF  . . . . . . . . . . . . . .	Byte	 0000	  DATAS	
+COUNTER  . . . . . . . . . . . .	Byte	 001E	  DATAS	
+MSGERR . . . . . . . . . . . . .	Byte	 0036	  DATAS	
+MSGIN  . . . . . . . . . . . . .	Byte	 0012	  DATAS	
+MSGOUT . . . . . . . . . . . . .	Byte	 001F	  DATAS	
+OUT12  . . . . . . . . . . . . .	L Near	 0028	  CODES	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+
+	   0 Warnings
+	   0 Errors

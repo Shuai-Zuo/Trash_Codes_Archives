@@ -1,0 +1,11 @@
+module selection_8t1(key,pressed,en,clk,sel)
+input[3:0]key;
+input pressed;
+input en,clk;
+input [2:0] sel;
+wire[3:0]sel_num;
+wire[2:0]sel_bit;
+output [3:0] out;
+selection(key,pressed,sel_num,sel_bit);
+experiment31(sel_bit,sel_num,clk,en,sel,out);
+endmodule

@@ -1,0 +1,51 @@
+P-> L P
+L-> S ;
+S-> while C do S
+C-> E > E
+E-> T
+T-> F
+F-> ( E )
+E-> E + T
+E-> T
+T-> F
+F-> id	a3
+T-> F
+F-> INT10	15
+E-> T
+T-> F
+F-> INT16	10
+S-> if C then S
+C-> E = E
+E-> T
+T-> F
+F-> id	x2
+E-> T
+T-> F
+F-> INT8	7
+S-> while C do S
+C-> E < E
+E-> T
+T-> F
+F-> id	y
+E-> T
+T-> F
+F-> id	z
+S-> id = E	y
+E-> T
+T-> T / F
+T-> T * F
+T-> F
+F-> id	x
+F-> id	y
+F-> id	z
+P-> L
+L-> S ;
+S-> id = E	c
+E-> E + T
+E-> T
+T-> T * F
+T-> F
+F-> id	b
+F-> id	c
+T-> F
+F-> id	d

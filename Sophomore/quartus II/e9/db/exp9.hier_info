@@ -1,0 +1,29 @@
+|exp9
+clk => z~reg0.CLK
+clk => current_state[0]~reg0.CLK
+clk => current_state[1]~reg0.CLK
+clk => current_state[2]~reg0.CLK
+x => Mux2.IN6
+x => Mux2.IN7
+x => Mux0.IN7
+x => Mux1.IN7
+x => z.DATAB
+x => Mux0.IN4
+x => Mux0.IN5
+x => Mux2.IN3
+x => Mux0.IN6
+x => Mux1.IN6
+x => Mux2.IN4
+x => Mux2.IN5
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+z <= z~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[0] <= current_state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[1] <= current_state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[2] <= current_state[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+next_state[0] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+next_state[1] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+next_state[2] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

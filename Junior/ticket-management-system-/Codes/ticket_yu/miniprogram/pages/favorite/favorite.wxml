@@ -1,0 +1,25 @@
+<view class="collect_main">
+  <view class="collect_content">
+    <view class="show_wrap">
+      <navigator class="show_item"
+      wx:for="{{collect}}"
+      wx:key="id"
+      url="/pages/ticket_inf/ticket_inf?peid={{item.id}}"
+      >
+        <view class="show_pic_wrap">
+          <wxs src="./subStr.wxs" module="strop"></wxs>
+          <image mode="widthFix" src="https://636c-cloud1-6gdvlf7927fbc9d5-1305608734.tcb.qcloud.la/img/{{item.id}}{{strop.subStr(item.verticalPic)}}"/>
+            
+        </view>
+        <view class="show_info_wrap">
+          <view class="show_name">
+            {{item.name}}
+          </view>
+          <view class="show_price">
+            ￥{{item.price}}
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

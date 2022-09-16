@@ -1,0 +1,370 @@
+|t2
+inc_Floor <= controlltst:inst.inc_Floor
+clk => controlltst:inst.clk
+clk => condition:inst3.clk
+reset => controlltst:inst.reset
+set_call[0] => request:inst2.set_call[0]
+set_call[1] => request:inst2.set_call[1]
+set_call[2] => request:inst2.set_call[2]
+set_call[3] => request:inst2.set_call[3]
+set_call[4] => request:inst2.set_call[4]
+set_call[5] => request:inst2.set_call[5]
+set_dest[0] => request:inst2.set_dest[0]
+set_dest[1] => request:inst2.set_dest[1]
+set_dest[2] => request:inst2.set_dest[2]
+set_dest[3] => request:inst2.set_dest[3]
+red_Floor <= controlltst:inst.red_Floor
+ce <= controlltst:inst.ce
+up_d <= controlltst:inst.up_d
+stop_r <= controlltst:inst.stop_r
+rst <= controlltst:inst.rst
+out_state_run <= data_deal:inst1.out_state_run
+out_state_dir <= data_deal:inst1.out_state_dir
+result <= condition:inst3.result
+cuir_Floor[0] <= data_deal:inst1.cur_Floor[0]
+cuir_Floor[1] <= data_deal:inst1.cur_Floor[1]
+get_call[0] <= request:inst2.get_call[0]
+get_call[1] <= request:inst2.get_call[1]
+get_call[2] <= request:inst2.get_call[2]
+get_call[3] <= request:inst2.get_call[3]
+get_call[4] <= request:inst2.get_call[4]
+get_call[5] <= request:inst2.get_call[5]
+get_dest[0] <= request:inst2.get_dest[0]
+get_dest[1] <= request:inst2.get_dest[1]
+get_dest[2] <= request:inst2.get_dest[2]
+get_dest[3] <= request:inst2.get_dest[3]
+state[0] <= controlltst:inst.state[0]
+state[1] <= controlltst:inst.state[1]
+state[2] <= controlltst:inst.state[2]
+state[3] <= controlltst:inst.state[3]
+
+
+|t2|controlltst:inst
+inc_Floor <= control:inst.inc_Floor
+clk => control:inst.clk
+clk => counter:inst1.clk
+reset => control:inst.reset
+result_Con => control:inst.result_Con
+red_Floor <= control:inst.red_Floor
+ce <= control:inst.ce
+up_d <= control:inst.up_d
+stop_r <= control:inst.stop_r
+rst <= control:inst.rst
+sel_Con[0] <= control:inst.sel_Con[0]
+sel_Con[1] <= control:inst.sel_Con[1]
+state[0] <= control:inst.state[0]
+state[1] <= control:inst.state[1]
+state[2] <= control:inst.state[2]
+state[3] <= control:inst.state[3]
+
+
+|t2|controlltst:inst|control:inst
+clk => state[0]~reg0.CLK
+clk => state[1]~reg0.CLK
+clk => state[2]~reg0.CLK
+clk => state[3]~reg0.CLK
+reset => state[0]~reg0.ACLR
+reset => state[1]~reg0.ACLR
+reset => state[2]~reg0.ACLR
+reset => state[3]~reg0.ACLR
+result_Con => Mux3.IN12
+result_Con => Mux0.IN14
+result_Con => Mux0.IN15
+result_Con => Mux1.IN15
+result_Con => Mux2.IN15
+result_Con => Mux0.IN11
+result_Con => Mux1.IN12
+result_Con => Mux1.IN13
+result_Con => Mux2.IN14
+result_Con => Mux3.IN10
+result_Con => Mux3.IN11
+consignal => Mux3.IN13
+consignal => Mux3.IN14
+consignal => Mux3.IN15
+consignal => Mux0.IN12
+consignal => Mux0.IN13
+consignal => Mux1.IN14
+sel_Con[0] <= sel_Con[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sel_Con[1] <= sel_Con[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+inc_Floor <= inc_Floor$latch.DB_MAX_OUTPUT_PORT_TYPE
+red_Floor <= red_Floor$latch.DB_MAX_OUTPUT_PORT_TYPE
+ce <= ce$latch.DB_MAX_OUTPUT_PORT_TYPE
+up_d <= up_d$latch.DB_MAX_OUTPUT_PORT_TYPE
+stop_r <= stop_r$latch.DB_MAX_OUTPUT_PORT_TYPE
+rst <= rst$latch.DB_MAX_OUTPUT_PORT_TYPE
+ce_Count <= ce_Count$latch.DB_MAX_OUTPUT_PORT_TYPE
+state[0] <= state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+state[1] <= state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+state[2] <= state[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+state[3] <= state[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|t2|controlltst:inst|counter:inst1
+ce_count => consignal.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+ce_count => count.OUTPUTSELECT
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => count[23].CLK
+clk => count[24].CLK
+clk => count[25].CLK
+clk => count[26].CLK
+clk => count[27].CLK
+clk => count[28].CLK
+clk => count[29].CLK
+clk => count[30].CLK
+clk => count[31].CLK
+clk => consignal~reg0.CLK
+consignal <= consignal~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|t2|condition:inst3
+get_dest[0] => always0.IN0
+get_dest[0] => always0.IN0
+get_dest[0] => Mux3.IN3
+get_dest[1] => always0.IN0
+get_dest[1] => always0.IN1
+get_dest[1] => always0.IN0
+get_dest[1] => always0.IN0
+get_dest[2] => always0.IN1
+get_dest[2] => always0.IN0
+get_dest[2] => always0.IN1
+get_dest[2] => always0.IN0
+get_dest[2] => always0.IN0
+get_dest[3] => always0.IN1
+get_dest[3] => always0.IN1
+get_dest[3] => always0.IN0
+get_dest[3] => Mux2.IN3
+get_call[0] => always0.IN1
+get_call[0] => always0.IN1
+get_call[0] => always0.IN1
+get_call[1] => always0.IN1
+get_call[1] => always0.IN1
+get_call[2] => always0.IN1
+get_call[2] => always0.IN1
+get_call[2] => always0.IN1
+get_call[2] => always0.IN1
+get_call[3] => always0.IN1
+get_call[3] => always0.IN1
+get_call[3] => always0.IN1
+get_call[4] => always0.IN1
+get_call[4] => always0.IN1
+get_call[4] => always0.IN1
+get_call[4] => always0.IN1
+get_call[5] => always0.IN1
+get_call[5] => always0.IN1
+get_call[5] => always0.IN1
+cur_Floor[0] => Mux0.IN5
+cur_Floor[0] => Mux1.IN5
+cur_Floor[0] => Mux2.IN5
+cur_Floor[0] => Mux3.IN5
+cur_Floor[1] => Mux0.IN4
+cur_Floor[1] => Mux1.IN4
+cur_Floor[1] => Mux2.IN4
+cur_Floor[1] => Mux3.IN4
+sel_condition[0] => Mux4.IN5
+sel_condition[1] => Mux4.IN4
+clk => result~reg0.CLK
+result <= result~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|t2|data_deal:inst1
+out_state_run <= stop_run:inst.out_state_run
+rst => stop_run:inst.rst
+rst => up_down:inst1.rst
+rst => floor:inst5.rst
+stop_r => stop_run:inst.stop_r
+out_state_dir <= up_down:inst1.out_state_dir
+up_d => up_down:inst1.up_d
+cur_Floor[0] <= floor:inst5.cur_Floor[0]
+cur_Floor[1] <= floor:inst5.cur_Floor[1]
+inc_Floor => floor:inst5.inc_Floor
+red_Floor => floor:inst5.red_Floor
+
+
+|t2|data_deal:inst1|stop_run:inst
+rst => always0.IN0
+stop_r => always0.IN1
+out_state_run <= always0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|t2|data_deal:inst1|up_down:inst1
+rst => always0.IN0
+up_d => always0.IN1
+out_state_dir <= always0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|t2|data_deal:inst1|floor:inst5
+inc_Floor => always0.IN0
+inc_Floor => inc.DATAB
+inc_Floor => red.DATAB
+red_Floor => always0.IN1
+rst => floor_clk.OUTPUTSELECT
+rst => cur_Floor[0]~reg0.ACLR
+rst => cur_Floor[1]~reg0.ACLR
+rst => red.LATCH_ENABLE
+rst => inc.LATCH_ENABLE
+cur_Floor[0] <= cur_Floor[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cur_Floor[1] <= cur_Floor[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|t2|request:inst2
+get_call[0] <= call:inst1.get_call[0]
+get_call[1] <= call:inst1.get_call[1]
+get_call[2] <= call:inst1.get_call[2]
+get_call[3] <= call:inst1.get_call[3]
+get_call[4] <= call:inst1.get_call[4]
+get_call[5] <= call:inst1.get_call[5]
+rst => call:inst1.rst
+rst => destination:inst.rst
+ce => call:inst1.ce
+ce => destination:inst.ce
+cur_Floor[0] => call:inst1.cur_Floor[0]
+cur_Floor[0] => destination:inst.cur_Floor[0]
+cur_Floor[1] => call:inst1.cur_Floor[1]
+cur_Floor[1] => destination:inst.cur_Floor[1]
+set_call[0] => call:inst1.set_call[0]
+set_call[1] => call:inst1.set_call[1]
+set_call[2] => call:inst1.set_call[2]
+set_call[3] => call:inst1.set_call[3]
+set_call[4] => call:inst1.set_call[4]
+set_call[5] => call:inst1.set_call[5]
+get_dest[0] <= destination:inst.get_dest[0]
+get_dest[1] <= destination:inst.get_dest[1]
+get_dest[2] <= destination:inst.get_dest[2]
+get_dest[3] <= destination:inst.get_dest[3]
+set_dest[0] => destination:inst.set_dest[0]
+set_dest[1] => destination:inst.set_dest[1]
+set_dest[2] => destination:inst.set_dest[2]
+set_dest[3] => destination:inst.set_dest[3]
+
+
+|t2|request:inst2|call:inst1
+set_call[0] => get_call[0].OUTPUTSELECT
+set_call[0] => get_call[0].IN1
+set_call[1] => get_call[1].OUTPUTSELECT
+set_call[1] => get_call[1].IN1
+set_call[2] => get_call[2].OUTPUTSELECT
+set_call[2] => get_call[2].IN1
+set_call[3] => get_call[3].OUTPUTSELECT
+set_call[3] => get_call[3].IN1
+set_call[4] => get_call[4].OUTPUTSELECT
+set_call[4] => get_call[4].IN1
+set_call[5] => get_call[5].OUTPUTSELECT
+set_call[5] => get_call[5].IN1
+rst => get_call[0]$latch.ACLR
+rst => get_call[1]$latch.ACLR
+rst => get_call[2]$latch.ACLR
+rst => get_call[3]$latch.ACLR
+rst => get_call[5]$latch.ACLR
+rst => get_call[4]$latch.ACLR
+cur_Floor[0] => Equal0.IN31
+cur_Floor[0] => Equal1.IN0
+cur_Floor[0] => Equal2.IN31
+cur_Floor[0] => Equal3.IN1
+cur_Floor[1] => Equal0.IN30
+cur_Floor[1] => Equal1.IN31
+cur_Floor[1] => Equal2.IN0
+cur_Floor[1] => Equal3.IN0
+ce => always0.IN1
+ce => always2.IN1
+ce => always4.IN1
+ce => always5.IN1
+ce => always5.IN1
+ce => always4.IN1
+ce => always2.IN1
+ce => always0.IN1
+get_call[0] <= get_call[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_call[1] <= get_call[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_call[2] <= get_call[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_call[3] <= get_call[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_call[4] <= get_call[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_call[5] <= get_call[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|t2|request:inst2|destination:inst
+set_dest[0] => get_dest[0].OUTPUTSELECT
+set_dest[0] => get_dest[0].IN1
+set_dest[1] => get_dest[1].OUTPUTSELECT
+set_dest[1] => get_dest[1].IN1
+set_dest[2] => get_dest[2].OUTPUTSELECT
+set_dest[2] => get_dest[2].IN1
+set_dest[3] => get_dest[3].OUTPUTSELECT
+set_dest[3] => get_dest[3].IN1
+rst => get_dest[0]$latch.ACLR
+rst => get_dest[1]$latch.ACLR
+rst => get_dest[3]$latch.ACLR
+rst => get_dest[2]$latch.ACLR
+ce => always0.IN1
+ce => always1.IN1
+ce => always2.IN1
+ce => always3.IN1
+ce => always3.IN1
+ce => always2.IN1
+ce => always1.IN1
+ce => always0.IN1
+cur_Floor[0] => Equal0.IN31
+cur_Floor[0] => Equal1.IN0
+cur_Floor[0] => Equal2.IN31
+cur_Floor[0] => Equal3.IN1
+cur_Floor[1] => Equal0.IN30
+cur_Floor[1] => Equal1.IN31
+cur_Floor[1] => Equal2.IN0
+cur_Floor[1] => Equal3.IN0
+get_dest[0] <= get_dest[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_dest[1] <= get_dest[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_dest[2] <= get_dest[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+get_dest[3] <= get_dest[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

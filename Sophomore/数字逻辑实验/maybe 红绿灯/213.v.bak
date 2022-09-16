@@ -1,0 +1,6 @@
+module _213(stop,num,numo);
+input stop;
+input[5:0]num;
+output [5:0]numo;
+assign clko=(stop)?clk:6'b0;
+endmodule

@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50MHz'
+Slack : -0.428
+TNS   : -5.002
+
+Type  : Slow 1200mV 85C Model Setup 'keyboard_scan:comb_3|pressed'
+Slack : -0.204
+TNS   : -2.240
+
+Type  : Slow 1200mV 85C Model Hold 'keyboard_scan:comb_3|pressed'
+Slack : 0.094
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_50MHz'
+Slack : 0.249
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -44.636
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'keyboard_scan:comb_3|pressed'
+Slack : -1.487
+TNS   : -41.636
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50MHz'
+Slack : -0.285
+TNS   : -2.982
+
+Type  : Slow 1200mV 0C Model Setup 'keyboard_scan:comb_3|pressed'
+Slack : -0.102
+TNS   : -1.017
+
+Type  : Slow 1200mV 0C Model Hold 'keyboard_scan:comb_3|pressed'
+Slack : 0.076
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_50MHz'
+Slack : 0.384
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -44.636
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'keyboard_scan:comb_3|pressed'
+Slack : -1.487
+TNS   : -41.636
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50MHz'
+Slack : 0.240
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'keyboard_scan:comb_3|pressed'
+Slack : 0.492
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_50MHz'
+Slack : -0.127
+TNS   : -0.478
+
+Type  : Fast 1200mV 0C Model Hold 'keyboard_scan:comb_3|pressed'
+Slack : 0.004
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -32.553
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'keyboard_scan:comb_3|pressed'
+Slack : -1.000
+TNS   : -28.000
+
+------------------------------------------------------------

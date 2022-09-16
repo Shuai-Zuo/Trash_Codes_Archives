@@ -1,0 +1,7 @@
+a=b+;
+a=b+c
+a=a+-b;
+if a=b then a=1 else b=1;
+if a> then a=b;
+while a=1 do;
+a=b+c;
