@@ -1,0 +1,9 @@
+bin\Light.EXP.DataAccess.dll
+bin\Light.EXP.DataAccess.pdb
+bin\Light.EXP.Model.dll
+bin\Light.EXP.SystemFrameworks.dll
+bin\Light.EXP.SystemFrameworks.pdb
+bin\Light.EXP.Model.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Light.EXP.DataAccess.dll
+obj\Debug\Light.EXP.DataAccess.pdb

@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50MHz'
+Slack : -4.010
+TNS   : -120.166
+
+Type  : Slow 1200mV 85C Model Setup 'exp7:comb_3|clk'
+Slack : -0.179
+TNS   : -1.068
+
+Type  : Slow 1200mV 85C Model Hold 'clk_50MHz'
+Slack : 0.294
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'exp7:comb_3|clk'
+Slack : 0.505
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -52.071
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'exp7:comb_3|clk'
+Slack : -1.487
+TNS   : -23.792
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50MHz'
+Slack : -3.775
+TNS   : -110.739
+
+Type  : Slow 1200mV 0C Model Setup 'exp7:comb_3|clk'
+Slack : -0.065
+TNS   : -0.377
+
+Type  : Slow 1200mV 0C Model Hold 'clk_50MHz'
+Slack : 0.371
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'exp7:comb_3|clk'
+Slack : 0.467
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -52.071
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'exp7:comb_3|clk'
+Slack : -1.487
+TNS   : -23.792
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50MHz'
+Slack : -1.143
+TNS   : -31.945
+
+Type  : Fast 1200mV 0C Model Setup 'exp7:comb_3|clk'
+Slack : 0.486
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_50MHz'
+Slack : -0.163
+TNS   : -0.163
+
+Type  : Fast 1200mV 0C Model Hold 'exp7:comb_3|clk'
+Slack : 0.200
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -38.287
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'exp7:comb_3|clk'
+Slack : -1.000
+TNS   : -16.000
+
+------------------------------------------------------------

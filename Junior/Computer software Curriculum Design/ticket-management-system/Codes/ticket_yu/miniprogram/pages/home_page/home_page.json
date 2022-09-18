@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "SearchInput":"../../components/SearchInput/SearchInput",
+    "Groups":"../../components/Groups/Groups",
+    "showInfo":"../../components/showInfo/showInfo"
+  },
+  "navigationBarTitleText": "小麦"
+}

@@ -1,0 +1,7 @@
+module _21(stop,light1,light2,lighto1,lighto2);
+input stop;
+input[2:0]light1,light2;
+output [2:0]lighto1,lighto2;
+assign lighto1=(stop)?light1:3'b100;
+assign lighto2=(stop)?light2:3'b100;
+endmodule

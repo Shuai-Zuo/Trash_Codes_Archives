@@ -1,0 +1,24 @@
+module counter(ce_count,clk,consignal);
+input ce_count,clk;
+output consignal;
+reg consignal;
+integer count;
+always@(posedge clk)
+begin
+if(!ce_count)
+begin
+consignal<=0;
+count<=5;
+end
+else
+begin
+if(count>1)
+begin
+consignal<=0;
+count=count-1;
+end
+else
+consignal<=1;
+end
+end
+endmodule

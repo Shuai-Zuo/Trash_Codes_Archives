@@ -1,0 +1,11 @@
+vendor_name = ModelSim
+source_file = 1, D:/quartus II/a/a.bdf
+source_file = 1, D:/quartus II/a/a.vwf
+source_file = 1, D:/quartus II/a/db/a.cbx.xml
+design_name = a
+instance = comp, \Y~output , Y~output, a, 1
+instance = comp, \D~input , D~input, a, 1
+instance = comp, \B~input , B~input, a, 1
+instance = comp, \C~input , C~input, a, 1
+instance = comp, \A~input , A~input, a, 1
+instance = comp, \inst4~0 , inst4~0, a, 1

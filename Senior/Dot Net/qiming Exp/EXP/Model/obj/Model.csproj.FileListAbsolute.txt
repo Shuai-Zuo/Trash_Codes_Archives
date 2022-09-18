@@ -1,0 +1,10 @@
+D:\EXP\01FrameCode\03EXP\Model\bin\Light.EXP.Model.dll
+D:\EXP\01FrameCode\03EXP\Model\bin\Light.EXP.Model.pdb
+D:\EXP\01FrameCode\03EXP\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\EXP\01FrameCode\03EXP\Model\obj\Debug\Light.EXP.Model.dll
+D:\EXP\01FrameCode\03EXP\Model\obj\Debug\Light.EXP.Model.pdb
+C:\Users\yangxf\Desktop\基本框架\EXP\Model\bin\Light.EXP.Model.dll
+C:\Users\yangxf\Desktop\基本框架\EXP\Model\bin\Light.EXP.Model.pdb
+C:\Users\yangxf\Desktop\基本框架\EXP\Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yangxf\Desktop\基本框架\EXP\Model\obj\Debug\Light.EXP.Model.dll
+C:\Users\yangxf\Desktop\基本框架\EXP\Model\obj\Debug\Light.EXP.Model.pdb

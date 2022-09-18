@@ -1,6 +1,0 @@
-I:\qiming Exp\EXP\SystemFrameworks\bin\Light.EXP.SystemFrameworks.dll
-I:\qiming Exp\EXP\SystemFrameworks\bin\Light.EXP.SystemFrameworks.pdb
-I:\qiming Exp\EXP\SystemFrameworks\obj\Debug\SystemFrameworks.csprojAssemblyReference.cache
-I:\qiming Exp\EXP\SystemFrameworks\obj\Debug\SystemFrameworks.csproj.CoreCompileInputs.cache
-I:\qiming Exp\EXP\SystemFrameworks\obj\Debug\Light.EXP.SystemFrameworks.dll
-I:\qiming Exp\EXP\SystemFrameworks\obj\Debug\Light.EXP.SystemFrameworks.pdb

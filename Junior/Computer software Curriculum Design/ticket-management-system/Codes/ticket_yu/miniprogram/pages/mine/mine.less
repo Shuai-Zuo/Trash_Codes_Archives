@@ -1,0 +1,114 @@
+page{
+  background-color: #edece8;
+}
+.botton{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top:40%;
+  border: 1rpx solid #000;
+  color:#000;
+  font-size: 38rpx;
+}
+.user_info_wrap{
+  height: 35vh;
+  background-color: var(--themeColor);
+  .user_img_wrap{
+    position: relative;
+    .botton{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top:40%;
+      border: 1rpx solid #000;
+      color:#000;
+      font-size: 38rpx;
+    }
+    .user_info{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top:30%;
+      text-align: center;
+      .user_icon{
+        width: 150rpx;
+        height: 150rpx;
+        border-radius: 50%;
+      }
+      .user_name{
+        color: #fff;
+        margin-top: 40rpx;
+        font-size: 30rpx;
+      }
+    }
+  }
+}
+.user_content{
+  position: relative;
+  .user_main{
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    top:-40rpx;
+    color: #666;
+    .history_wrap{
+      background-color: #fff;
+      display: flex;
+      navigator{
+        flex:1;
+        text-align: center;
+        padding: 10rpx;
+        .his_num{
+          color:var(--themeColor);
+        }
+      }
+    }
+
+    .app_info_wrap{
+      margin-top: 30rpx;
+      background-color: #fff;
+      
+      .app_info_item{
+        padding: 20rpx;
+        border-bottom: 1px solid #ccc;
+        
+      }
+      .app_info_contact{
+        display: flex;
+        justify-content: space-between;
+      }
+      .app_info_feedback{
+        position: relative;
+        button{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+        }
+      }
+      .app_info_us{
+        position: relative;
+        button{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+        }
+      }
+    }
+
+    .recommend_wrap{
+      margin-top: 30rpx;
+      background-color: #fff;
+      padding: 20rpx;
+    }
+
+
+
+  }
+}

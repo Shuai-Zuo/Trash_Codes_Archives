@@ -1,0 +1,20 @@
+module exp8_top(CLK,CLRN,S,DSL,DSR,D,C,B,A,QD,QC,QB,QA,rst,switch);
+input CLK,CLRN,DSL,DSR,D,C,B,A;
+input [1:0]S;
+input rst;
+input [1:0]switch;
+output QD,QC,QB,QA;
+wire clk_1Hz,clk_10Hz,clk_100Hz,clk_1KHz;
+reg selclk;
+exp7(rst,CLK,clk_1Hz,clk_10Hz,clk_100Hz,clk_1KHz);
+always@(switch)
+begin
+	case(switch)
+		2'b00:selclk<=clk_1Hz;
+		2'b01:selclk<=clk_10Hz;
+		2'b10:selclk<=clk_100Hz;
+		2'b11:selclk<=clk_1KHz;
+	endcase
+end
+exp8(CLRN,S,DSL,DSR,selclk,D,C,B,A,QD,QC,QB,QA);
+endmodule

@@ -1,0 +1,11 @@
+I:\qiming Exp\EXP\DataAccess\bin\Light.EXP.DataAccess.dll
+I:\qiming Exp\EXP\DataAccess\bin\Light.EXP.DataAccess.pdb
+I:\qiming Exp\EXP\DataAccess\bin\Light.EXP.Model.dll
+I:\qiming Exp\EXP\DataAccess\bin\Light.EXP.SystemFrameworks.dll
+I:\qiming Exp\EXP\DataAccess\bin\Light.EXP.Model.pdb
+I:\qiming Exp\EXP\DataAccess\bin\Light.EXP.SystemFrameworks.pdb
+I:\qiming Exp\EXP\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+I:\qiming Exp\EXP\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+I:\qiming Exp\EXP\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+I:\qiming Exp\EXP\DataAccess\obj\Debug\Light.EXP.DataAccess.dll
+I:\qiming Exp\EXP\DataAccess\obj\Debug\Light.EXP.DataAccess.pdb

@@ -1,0 +1,211 @@
+$comment
+	File created using the following command:
+		vcd file Elevator_Controller.msim.vcd -direction
+$end
+$date
+	Thu Dec 12 21:33:31 2019
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module floor_vlg_vec_tst $end
+$var reg 2 ! current_floor [1:0] $end
+$var reg 1 " opnd $end
+$var reg 4 # request_in [3:0] $end
+$var reg 3 $ request_out_down [2:0] $end
+$var reg 3 % request_out_up [2:0] $end
+$var reg 1 & rst $end
+$var wire 1 ' request_in_seq [3] $end
+$var wire 1 ( request_in_seq [2] $end
+$var wire 1 ) request_in_seq [1] $end
+$var wire 1 * request_in_seq [0] $end
+$var wire 1 + request_out_seq [5] $end
+$var wire 1 , request_out_seq [4] $end
+$var wire 1 - request_out_seq [3] $end
+$var wire 1 . request_out_seq [2] $end
+$var wire 1 / request_out_seq [1] $end
+$var wire 1 0 request_out_seq [0] $end
+$var wire 1 1 sampler $end
+$scope module i1 $end
+$var wire 1 2 gnd $end
+$var wire 1 3 vcc $end
+$var wire 1 4 unknown $end
+$var tri1 1 5 devclrn $end
+$var tri1 1 6 devpor $end
+$var tri1 1 7 devoe $end
+$var wire 1 8 inst6|request_out_seq[5]~0_combout $end
+$var wire 1 9 request_in_seq[3]~output_o $end
+$var wire 1 : request_in_seq[2]~output_o $end
+$var wire 1 ; request_in_seq[1]~output_o $end
+$var wire 1 < request_in_seq[0]~output_o $end
+$var wire 1 = request_out_seq[5]~output_o $end
+$var wire 1 > request_out_seq[4]~output_o $end
+$var wire 1 ? request_out_seq[3]~output_o $end
+$var wire 1 @ request_out_seq[2]~output_o $end
+$var wire 1 A request_out_seq[1]~output_o $end
+$var wire 1 B request_out_seq[0]~output_o $end
+$var wire 1 C rst~input_o $end
+$var wire 1 D request_in[1]~input_o $end
+$var wire 1 E request_in[2]~input_o $end
+$var wire 1 F current_floor[1]~input_o $end
+$var wire 1 G opnd~input_o $end
+$var wire 1 H current_floor[0]~input_o $end
+$var wire 1 I inst|request_in_seq[3]~0_combout $end
+$var wire 1 J inst|request_in_seq[3]~1_combout $end
+$var wire 1 K inst6|Equal1~0_combout $end
+$var wire 1 L request_in[3]~input_o $end
+$var wire 1 M inst|request_in_seq[2]~2_combout $end
+$var wire 1 N inst|request_in_seq[2]~3_combout $end
+$var wire 1 O inst6|Equal1~1_combout $end
+$var wire 1 P request_in[0]~input_o $end
+$var wire 1 Q inst|request_in_seq[1]~4_combout $end
+$var wire 1 R inst|request_in_seq[1]~5_combout $end
+$var wire 1 S inst6|Equal1~2_combout $end
+$var wire 1 T inst|request_in_seq[0]~6_combout $end
+$var wire 1 U inst|request_in_seq[0]~7_combout $end
+$var wire 1 V inst6|Equal0~0_combout $end
+$var wire 1 W request_out_down[1]~input_o $end
+$var wire 1 X inst6|request_out_seq[5]~1_combout $end
+$var wire 1 Y inst6|request_out_seq[5]~2_combout $end
+$var wire 1 Z request_out_down[0]~input_o $end
+$var wire 1 [ request_out_up[1]~input_o $end
+$var wire 1 \ request_out_down[2]~input_o $end
+$var wire 1 ] request_out_up[2]~input_o $end
+$var wire 1 ^ inst6|request_out_seq[4]~3_combout $end
+$var wire 1 _ inst6|request_out_seq[4]~4_combout $end
+$var wire 1 ` inst6|request_out_seq[4]~5_combout $end
+$var wire 1 a inst6|request_out_seq[2]~6_combout $end
+$var wire 1 b request_out_up[0]~input_o $end
+$var wire 1 c inst6|request_out_seq[3]~7_combout $end
+$var wire 1 d inst6|request_out_seq[3]~8_combout $end
+$var wire 1 e inst6|request_out_seq[2]~9_combout $end
+$var wire 1 f inst6|request_out_seq[2]~10_combout $end
+$var wire 1 g inst6|request_out_seq[1]~11_combout $end
+$var wire 1 h inst6|request_out_seq[0]~12_combout $end
+$var wire 1 i inst6|request_out_seq [5] $end
+$var wire 1 j inst6|request_out_seq [4] $end
+$var wire 1 k inst6|request_out_seq [3] $end
+$var wire 1 l inst6|request_out_seq [2] $end
+$var wire 1 m inst6|request_out_seq [1] $end
+$var wire 1 n inst6|request_out_seq [0] $end
+$var wire 1 o inst|request_in_seq [3] $end
+$var wire 1 p inst|request_in_seq [2] $end
+$var wire 1 q inst|request_in_seq [1] $end
+$var wire 1 r inst|request_in_seq [0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 !
+0"
+b10 #
+b100 $
+b0 %
+1&
+0*
+0)
+0(
+0'
+00
+0/
+0.
+0-
+0,
+0+
+x1
+02
+13
+x4
+15
+16
+17
+08
+09
+0:
+0;
+0<
+0=
+0>
+0?
+0@
+0A
+0B
+1C
+1D
+0E
+0F
+0G
+0H
+0I
+0J
+0K
+0L
+0M
+0N
+0O
+0P
+1Q
+1R
+0S
+0T
+0U
+0V
+0W
+0X
+0Y
+0Z
+0[
+1\
+0]
+0^
+0_
+0`
+1a
+0b
+0c
+0d
+1e
+1f
+0g
+0h
+0n
+0m
+0l
+0k
+0j
+0i
+0r
+0q
+0p
+0o
+$end
+#20000
+0&
+0C
+01
+1l
+1q
+1@
+1;
+1.
+1)
+#500000
+b0 $
+b10 %
+1[
+0\
+11
+0a
+0e
+1^
+0f
+1_
+1`
+1j
+1>
+1,
+#1000000

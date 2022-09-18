@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\quartus II\e9\simulation\qsim
+vexp9
+Z1 !s100 24HC<NiHj7LKWX1U00JOL2
+Z2 I6[Jf8I2O:mX9ca9XaR?:80
+Z3 V;DG3HTcMgha:_?<X?XzYf1
+Z4 dD:\quartus II\e9\simulation\qsim
+Z5 w1574396342
+Z6 8exp9.vo
+Z7 Fexp9.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|exp9.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1574396344.116000
+Z12 !s107 exp9.vo|
+!s101 -O0
+vexp9_vlg_check_tst
+!i10b 1
+Z13 !s100 Wh@<O]bKBZNn9adnX=VkA0
+Z14 I9h46bJN?gk9<795WWXkAP0
+Z15 Vb;4>3I:cc8Ke@OAKEiMB50
+R4
+Z16 w1574396341
+Z17 8exp9.vt
+Z18 Fexp9.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z19 !s108 1574396344.380000
+Z20 !s107 exp9.vt|
+Z21 !s90 -work|work|exp9.vt|
+!s101 -O0
+R10
+vexp9_vlg_sample_tst
+!i10b 1
+Z22 !s100 G7]Af[Saf2Aza1iPbbMVO0
+Z23 IR4M@n27V<Dc0P[HW=[UM23
+Z24 V=Vj_9Bk=R=mOe@lk9_UA=2
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vexp9_vlg_vec_tst
+!i10b 1
+Z25 !s100 GBhkOM=PCnOoA19cPGkkf3
+Z26 Ia23V>>I8dXK62NPAgT9;60
+Z27 VA>SzElhOGGmYaFWRAfZV40
+R4
+R16
+R17
+R18
+Z28 L0 280
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

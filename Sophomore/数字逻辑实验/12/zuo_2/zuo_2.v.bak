@@ -1,6 +1,0 @@
-module zuo_2(B,clk,W,mflag,S);
-input B,clk,mfalg;
-output [15:0]W;
-reg[15:0]W;
-output S;
-reg S;

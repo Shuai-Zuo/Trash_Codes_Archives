@@ -1,0 +1,413 @@
+Microsoft (R) Macro Assembler Version 6.11		    05/06/20 15:03:09
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 0A 49 6E 76 61 6C		   	MSGERR DB 0AH,'Invalid Input!',0ah,'$'
+       69 64 20 49 6E 70
+       75 74 21 0A 24
+ 0011 49 6E 70 75 74 20		   	MSGIN1 DB 'Input numbers:$'
+       6E 75 6D 62 65 72
+       73 3A 24
+ 0020 53 6F 72 74 20 72		   	MSGOUT DB 'Sort result is:$'
+       65 73 75 6C 74 20
+       69 73 3A 24
+ 0030 0A 54 68 65 20 66		   	MSGOUT2 DB 0AH,'The final result is:$'
+       69 6E 61 6C 20 72
+       65 73 75 6C 74 20
+       69 73 3A 24
+ 0046 0A 0D 53 74 75 64		   	MSGOUT3 DB 0AH,0DH,'Student id:18074102$'
+       65 6E 74 20 69 64
+       3A 31 38 30 37 34
+       31 30 32 24
+ 005C  0006 [			   	BUF DW 6 DUP(0FFFFH),18D,7D,41D,2D
+        FFFF
+       ] 0012 0007 0029
+       0002
+ 0070 00			   	COUNT DB 0
+ 0071 00			   	COUNT1 DB 0
+ 0072 00			   	COUNT2 DB 0
+ 0073 00				NUMB  DB  0
+ 0074 0000				SUM DW 0
+ 0076 0000				INTPART DW 0
+ 0078 0000			    FLOATPART DW 0
+ 007A				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+ 0000  0100 [			     DW 100H DUP(0)
+        0000
+       ]
+ 0200				STACKS ENDS
+
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+ 0005  8D 3E 005C R		    LEA DI,BUF[0]
+ 0009  B9 0006			    MOV CX,06H
+ 000C  8D 16 0011 R		    LEA DX,MSGIN1
+ 0010  B4 09			    MOV AH,09H
+ 0012  CD 21			    INT 21H
+				    
+				    
+ 0014				LP1:
+ 0014  E8 0087			    CALL READ1
+ 0017  89 15			    MOV [DI],DX
+ 0019  33 D2			    XOR DX,DX 
+ 001B  47			    INC DI
+ 001C  47			    INC DI
+ 001D  49			    DEC CX
+ 001E  83 F9 00			 	CMP CX,0
+ 0021  75 F1			 	JNE LP1  ;逐个录入10个数
+ 0023  E8 0033				CALL SORT ;排序
+ 0026  B2 0A				MOV DL,0AH
+ 0028  B4 02			    MOV AH,02H
+ 002A  CD 21			    INT 21H  
+ 002C  E8 00D9				CALL PRINT;输出
+ 002F  B9 0006				MOV CX,06H
+					
+					
+ 0032  8D 16 0046 R			LEA DX,MSGOUT3
+ 0036  B4 09			    MOV AH,09H
+ 0038  CD 21			    INT 21H
+					
+					
+ 003A				LP2:
+ 003A  8D 3E 005E R			LEA DI,BUF[2]
+ 003E  8B 1E 005E R			MOV BX,BUF[2]
+ 0042  01 1E 0074 R			ADD SUM,BX
+ 0046  47				INC DI
+ 0047  47				INC DI
+ 0048  E2 F0			LOOP LP2
+ 004A  8D 16 0030 R			LEA DX,MSGOUT2
+ 004E  B4 09			    MOV AH,09H
+ 0050  CD 21			    INT 21H
+ 0052  E8 012B				CALL DIVI	
+					
+					
+					
+ 0055  B4 4C			    MOV AH,4CH
+ 0057  CD 21			    INT 21H
+				    
+ 0059				SORT  PROC NEAR;冒泡排序
+ 0059  50				PUSH AX 
+ 005A  53				PUSH BX
+ 005B  51				PUSH CX
+ 005C					LOP1:  
+ 005C  C6 06 0072 R 00			MOV COUNT2,0D 
+ 0061  8D 36 005C R			LEA SI,BUF[0]
+ 0065  83 EE 02				SUB SI,2H
+ 0068  FE 06 0071 R			INC COUNT1
+ 006C  80 3E 0071 R 0A			CMP COUNT1,10D;内层循环10次
+ 0071  74 23				JZ NEX 
+ 0073					LOP2:  
+ 0073  FE 06 0072 R			INC COUNT2
+ 0077  83 C6 02				ADD SI,2H
+ 007A  80 3E 0072 R 0A			CMP COUNT2,10D;外层循环10次
+ 007F  74 DB				JZ LOP1
+ 0081  8B 5C 02				MOV BX,[SI+2H]
+ 0084  39 1C				CMP [SI],BX
+ 0086  72 02				JB SWAP ;若[si]大于[si+2h]则调用swap，否则继续循环
+ 0088  EB E9				JMP LOP2
+ 008A					SWAP:  
+ 008A  8B 04				MOV AX,[SI]
+ 008C  8B 4C 02				MOV CX,[SI+2H]
+ 008F  89 0C				MOV [SI],CX
+ 0091  89 44 02				MOV [SI+2H],AX;通过中间寄存器交换[SI+2H]与[SI]
+ 0094  EB DD				JMP LOP2
+ 0096					NEX:  
+ 0096  59				POP CX
+ 0097  5B				POP BX
+ 0098  58				POP AX
+ 0099  8B 16 005C R			MOV DX,BUF[0]
+ 009D  C3				RET
+ 009E				SORT  ENDP    
+				    
+				    
+				    
+				    
+ 009E				READ1 PROC NEAR
+ 009E  EB 0C				JMP BEG1
+ 00A0				ERR: 
+ 00A0  8D 16 0000 R			LEA DX,MSGERR
+ 00A4  B4 09			    MOV AH,09H
+ 00A6  CD 21			    INT 21H
+ 00A8  32 E4			    XOR AH,AH
+ 00AA  33 D2			    XOR DX,DX
+ 00AC				BEG1:
+ 00AC  B4 01			    MOV AH,01H
+ 00AE  CD 21			    INT 21H
+ 00B0  3C 30			    CMP AL,'0'
+ 00B2  72 EC			    JB ERR
+ 00B4  3C 39			    CMP AL,'9'
+ 00B6  77 E8			    JA ERR;判断是否为数字
+ 00B8  8A D0			    MOV DL,AL
+ 00BA  80 EA 30			    SUB DL,30H
+ 00BD  B4 01			    MOV AH,01H
+ 00BF  CD 21			    INT 21H
+				    ;CMP AL,0DH
+				    ;JZ DONE
+				    ;CMP AL,' '
+				    ;JZ DONE
+ 00C1  3C 30			    CMP AL,'0'
+ 00C3  72 DB			    JB ERR
+ 00C5  3C 39			    CMP AL,'9'
+ 00C7  77 D7			    JA ERR;判断是否为数字
+ 00C9  2C 30			    SUB AL,30H
+ 00CB  D1 E2			    SHL DX,1
+ 00CD  8B DA			    MOV BX,DX
+ 00CF  D1 E2			    SHL DX,1
+ 00D1  D1 E2			    SHL DX,1;转换为数字后乘16
+ 00D3  03 D3			    ADD DX,BX;加低位
+ 00D5  32 E4			    XOR AH,AH
+ 00D7  03 D0			    ADD DX,AX
+ 00D9  B4 01			    MOV AH,01H
+ 00DB  CD 21			    INT 21H
+ 00DD  3C 0D			    CMP AL,0DH
+ 00DF  74 24			    JZ DONE
+ 00E1  3C 20			    CMP AL,' '
+ 00E3  74 20			    JZ DONE
+ 00E5  3C 30			    CMP AL,'0'
+ 00E7  72 B7			    JB ERR
+ 00E9  3C 39			    CMP AL,'9'
+ 00EB  77 B3			    JA ERR;判断是否为数字
+ 00ED  2C 30			    SUB AL,30H
+ 00EF  D1 E2			    SHL DX,1
+ 00F1  8B DA			    MOV BX,DX
+ 00F3  D1 E2			    SHL DX,1
+ 00F5  D1 E2			    SHL DX,1
+ 00F7  03 D3			    ADD DX,BX;转换为数字后乘16
+ 00F9  32 E4			    XOR AH,AH
+ 00FB  03 D0			    ADD DX,AX ;加低位
+ 00FD  52			    PUSH DX
+ 00FE  B2 20			    MOV DL,' '
+ 0100  B4 02			    MOV AH,02H
+ 0102  CD 21			    INT 21H
+ 0104  5A			    POP DX
+ 0105				DONE:
+ 0105  32 E4			    XOR AH,AH
+ 0107  C3				RET
+ 0108				READ1 ENDP
+				   
+				   
+				   
+ 0108				PRINT PROC NEAR
+ 0108  8D 16 0020 R			LEA DX,MSGOUT
+ 010C  B4 09			    MOV AH,09H
+ 010E  CD 21			    INT 21H
+ 0110  8D 36 005C R		  	LEA SI,BUF[0]
+ 0114				LOP:  
+ 0114  80 3E 0070 R 0A			CMP COUNT,0AH
+ 0119  73 64				JAE EXIT
+ 011B  BB 000A			  	MOV BX,0AH
+ 011E  8B 04			  	MOV AX,[SI]
+ 0120  33 D2			  	XOR DX,DX
+ 0122  F7 F3			  	DIV BX;除10获得十位部分
+ 0124  83 F8 0A			  	CMP AX,0AH
+ 0127  73 23			  	JAE BIG1;若十位大于10则计算百位部分
+ 0129  8A F2			    MOV DH,DL
+ 012B  8A D0			  	MOV DL,AL
+ 012D  80 C2 30			  	ADD DL,30H;加30h转换为字符输出
+ 0130  B4 02			    MOV AH,02H
+ 0132  CD 21			    INT 21H
+ 0134  8A D6			    MOV DL,DH
+ 0136  80 C2 30			    ADD DL,30H;个位部分加30h转换为字符输出
+ 0139  B4 02			    MOV AH,02H
+ 013B  CD 21			    INT 21H
+ 013D  83 C6 02			    ADD SI,02H
+ 0140  FE 06 0070 R		    INC COUNT
+ 0144  B2 20			    MOV DL,' ';输出‘ ’
+ 0146  B4 02			    MOV AH,02H
+ 0148  CD 21			    INT 21H
+ 014A  EB C8			    JMP LOP	
+ 014C				BIG1:
+ 014C  52				PUSH DX
+ 014D  BB 000A				MOV BX,0AH
+ 0150  33 D2				XOR DX,DX
+ 0152  F7 F3				DIV BX;除10获得百位部分
+ 0154  8A F2				MOV DH,DL
+ 0156  8A D0			  	MOV DL,AL
+ 0158  80 C2 30			  	ADD DL,30H;加30h转换为字符输出
+ 015B  B4 02			    MOV AH,02H
+ 015D  CD 21			    INT 21H
+ 015F  8A D6			    MOV DL,DH
+ 0161  80 C2 30			    ADD DL,30H;十位部分加30h转换为字符输出
+ 0164  B4 02			    MOV AH,02H
+ 0166  CD 21			    INT 21H
+ 0168  5A			    POP DX;个位部分出栈
+ 0169  80 C2 30			    ADD DL,30H;个位部分加30h转换为字符输出
+ 016C  B4 02			    MOV AH,02H
+ 016E  CD 21			    INT 21H
+ 0170  83 C6 02			    ADD SI,02H
+ 0173  FE 06 0070 R		    INC COUNT
+ 0177  B2 20			    MOV DL,' ';输出‘ ’
+ 0179  B4 02			    MOV AH,02H
+ 017B  CD 21			    INT 21H
+ 017D  EB 95			    JMP LOP
+ 017F				EXIT:
+ 017F  C3				RET
+ 0180				PRINT ENDP  
+					
+ 0180				DIVI PROC NEAR
+					;LEA DX,MSGOUT2
+				    ;MOV AH,09H
+				    ;INT 21H
+ 0180  A1 0074 R		    MOV AX,SUM
+ 0183  B3 09				MOV BL,09H
+ 0185  F6 F3			    DIV BL
+ 0187  8A F4			    MOV DH,AH
+ 0189  32 E4			    XOR AH,AH
+ 018B  A3 0076 R		    MOV INTPART,AX
+ 018E  8A C6			    MOV AL,DH
+ 0190  B3 0A			    MOV BL,0AH
+ 0192  F6 E3			    MUL BL
+ 0194  B3 09				MOV BL,09H
+ 0196  F6 F3			    DIV BL
+ 0198  32 E4			    XOR AH,AH
+ 019A  A3 0078 R		    MOV FLOATPART,AX
+				    ;MOV AX,SUM
+				    ;CALL PRINT2
+ 019D  A1 0076 R		    MOV AX,INTPART
+ 01A0  E8 0012			    CALL PRINT2
+ 01A3  B2 2E			    MOV DL,'.'
+ 01A5  B4 02			    MOV AH,02H
+ 01A7  CD 21			    INT 21H
+ 01A9  8B 16 0078 R		    MOV DX,FLOATPART
+ 01AD  80 C2 30			    ADD DL,30H
+ 01B0  B4 02			    MOV AH,02H
+ 01B2  CD 21			    INT 21H
+				    
+				    
+				    
+ 01B4  C3			    RET    
+ 01B5				DIVI ENDP	
+
+
+
+ 01B5				PRINT2 PROC NEAR;输出三位以下十进制数
+					;LEA DX,MSGOUT
+				    ;MOV AH,09H
+				    ;INT 21H
+ 01B5  BB 000A			  	MOV BX,0AH
+ 01B8  33 D2			  	XOR DX,DX
+ 01BA  F7 F3			  	DIV BX
+ 01BC  83 F8 0A			  	CMP AX,0AH
+ 01BF  73 1D			  	JAE BIG1
+ 01C1  83 F8 00			  	CMP AX,0H
+ 01C4  74 3E			  	JE SMALL
+ 01C6  50			  	PUSH AX
+ 01C7  8A F2			    MOV DH,DL
+ 01C9  58			    POP AX
+ 01CA  8A D0			  	MOV DL,AL
+ 01CC  80 C2 30			  	ADD DL,30H
+ 01CF  B4 02			    MOV AH,02H
+ 01D1  CD 21			    INT 21H
+ 01D3  8A D6			    MOV DL,DH
+ 01D5  80 C2 30			    ADD DL,30H
+ 01D8  B4 02			    MOV AH,02H
+ 01DA  CD 21			    INT 21H
+ 01DC  EB 31			    JMP EXIT
+ 01DE				BIG1:
+ 01DE  52				PUSH DX
+ 01DF  BB 000A				MOV BX,0AH
+ 01E2  33 D2				XOR DX,DX
+ 01E4  F7 F3				DIV BX
+ 01E6  8A F2				MOV DH,DL
+ 01E8  8A D0			  	MOV DL,AL
+ 01EA  80 C2 30			  	ADD DL,30H
+ 01ED  B4 02			    MOV AH,02H
+ 01EF  CD 21			    INT 21H
+ 01F1  8A D6			    MOV DL,DH
+ 01F3  80 C2 30			    ADD DL,30H
+ 01F6  B4 02			    MOV AH,02H
+ 01F8  CD 21			    INT 21H
+ 01FA  5A			    POP DX
+ 01FB  80 C2 30			    ADD DL,30H
+ 01FE  B4 02			    MOV AH,02H
+ 0200  CD 21			    INT 21H
+ 0202  EB 0B			    JMP EXIT
+ 0204				SMALL:
+ 0204  8A D6			    MOV DL,DH
+ 0206  80 C2 30			    ADD DL,30H
+ 0209  B4 02			    MOV AH,02H
+ 020B  CD 21			    INT 21H
+ 020D  EB 00			    JMP EXIT   
+ 020F				EXIT:
+ 020F  C3				RET  	
+ 0210				PRINT2 ENDP
+					
+					  	
+				    
+ 0210				CODES ENDS
+				    END START
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    05/06/20 15:03:09
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 0210	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 007A	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0200	  Para	  Private 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+DIVI . . . . . . . . . . . . . .	P Near	 0180	  CODES	Length= 0035 Public
+PRINT2 . . . . . . . . . . . . .	P Near	 01B5	  CODES	Length= 005B Public
+  BIG1 . . . . . . . . . . . . .	L Near	 01DE	  CODES	
+  SMALL  . . . . . . . . . . . .	L Near	 0204	  CODES	
+  EXIT . . . . . . . . . . . . .	L Near	 020F	  CODES	
+PRINT  . . . . . . . . . . . . .	P Near	 0108	  CODES	Length= 0078 Public
+  LOP  . . . . . . . . . . . . .	L Near	 0114	  CODES	
+  BIG1 . . . . . . . . . . . . .	L Near	 014C	  CODES	
+  EXIT . . . . . . . . . . . . .	L Near	 017F	  CODES	
+READ1  . . . . . . . . . . . . .	P Near	 009E	  CODES	Length= 006A Public
+  ERR  . . . . . . . . . . . . .	L Near	 00A0	  CODES	
+  BEG1 . . . . . . . . . . . . .	L Near	 00AC	  CODES	
+  DONE . . . . . . . . . . . . .	L Near	 0105	  CODES	
+SORT . . . . . . . . . . . . . .	P Near	 0059	  CODES	Length= 0045 Public
+  LOP1 . . . . . . . . . . . . .	L Near	 005C	  CODES	
+  LOP2 . . . . . . . . . . . . .	L Near	 0073	  CODES	
+  SWAP . . . . . . . . . . . . .	L Near	 008A	  CODES	
+  NEX  . . . . . . . . . . . . .	L Near	 0096	  CODES	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+BUF  . . . . . . . . . . . . . .	Word	 005C	  DATAS	
+COUNT1 . . . . . . . . . . . . .	Byte	 0071	  DATAS	
+COUNT2 . . . . . . . . . . . . .	Byte	 0072	  DATAS	
+COUNT  . . . . . . . . . . . . .	Byte	 0070	  DATAS	
+FLOATPART  . . . . . . . . . . .	Word	 0078	  DATAS	
+INTPART  . . . . . . . . . . . .	Word	 0076	  DATAS	
+LP1  . . . . . . . . . . . . . .	L Near	 0014	  CODES	
+LP2  . . . . . . . . . . . . . .	L Near	 003A	  CODES	
+MSGERR . . . . . . . . . . . . .	Byte	 0000	  DATAS	
+MSGIN1 . . . . . . . . . . . . .	Byte	 0011	  DATAS	
+MSGOUT2  . . . . . . . . . . . .	Byte	 0030	  DATAS	
+MSGOUT3  . . . . . . . . . . . .	Byte	 0046	  DATAS	
+MSGOUT . . . . . . . . . . . . .	Byte	 0020	  DATAS	
+NUMB . . . . . . . . . . . . . .	Byte	 0073	  DATAS	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+SUM  . . . . . . . . . . . . . .	Word	 0074	  DATAS	
+
+	   0 Warnings
+	   0 Errors

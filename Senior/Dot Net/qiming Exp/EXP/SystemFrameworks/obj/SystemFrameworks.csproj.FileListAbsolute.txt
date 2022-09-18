@@ -1,0 +1,10 @@
+D:\EXP\01FrameCode\03EXP\SystemFrameworks\bin\Light.EXP.SystemFrameworks.dll
+D:\EXP\01FrameCode\03EXP\SystemFrameworks\bin\Light.EXP.SystemFrameworks.pdb
+D:\EXP\01FrameCode\03EXP\SystemFrameworks\obj\Debug\ResolveAssemblyReference.cache
+D:\EXP\01FrameCode\03EXP\SystemFrameworks\obj\Debug\Light.EXP.SystemFrameworks.dll
+D:\EXP\01FrameCode\03EXP\SystemFrameworks\obj\Debug\Light.EXP.SystemFrameworks.pdb
+C:\Users\yangxf\Desktop\基本框架\EXP\SystemFrameworks\bin\Light.EXP.SystemFrameworks.dll
+C:\Users\yangxf\Desktop\基本框架\EXP\SystemFrameworks\bin\Light.EXP.SystemFrameworks.pdb
+C:\Users\yangxf\Desktop\基本框架\EXP\SystemFrameworks\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\yangxf\Desktop\基本框架\EXP\SystemFrameworks\obj\Debug\Light.EXP.SystemFrameworks.dll
+C:\Users\yangxf\Desktop\基本框架\EXP\SystemFrameworks\obj\Debug\Light.EXP.SystemFrameworks.pdb

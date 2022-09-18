@@ -1,0 +1,5 @@
+bin\Light.EXP.Model.dll
+bin\Light.EXP.Model.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Light.EXP.Model.dll
+obj\Debug\Light.EXP.Model.pdb

@@ -1,0 +1,5 @@
+bin\Light.EXP.SystemFrameworks.dll
+bin\Light.EXP.SystemFrameworks.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Light.EXP.SystemFrameworks.dll
+obj\Debug\Light.EXP.SystemFrameworks.pdb

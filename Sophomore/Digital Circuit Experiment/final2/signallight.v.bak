@@ -1,0 +1,61 @@
+module signal_light(clk,rst,count,light1,light2);
+input clk,rst;
+input [5:0]count;
+output light1,light2;
+reg[2:0] light1,light2;
+reg[2:0]state;
+
+parameter Idle=3'b000,
+S1=3'b001,
+S2=3'b010,
+S3=3'b011,
+S4=3'b100;
+
+
+always@(posedge clk)
+begin
+if(!rst)
+ begin
+state<=Idle;
+light1<=3'b010;
+light2<=3'b010;
+end
+else
+case(state)
+Idle: if(rst)
+begin
+state<=S1;
+light1<=3'b100;
+light2<=3'b001;
+end
+
+S1: if(count=='d25)
+begin
+state<=S2;
+light1<=3'b100;
+light2<=3'b010;
+end
+ 
+
+S2: if(count=='d30)
+begin
+state<=S3;
+light1<=3'b001;
+light2<=3'b100;
+end
+S3: if(count=='d55)
+begin
+state<=S4;
+light1<=3'b010;
+light2<=3'b100;
+end 
+S4: if(count=='d60)
+begin
+state<=S1;
+light1<=3'b100;
+light2<=3'b001;
+end
+default:state<=Idle;
+endcase
+end
+endmodule

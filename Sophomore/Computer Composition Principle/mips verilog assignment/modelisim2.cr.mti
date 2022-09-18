@@ -1,0 +1,145 @@
+D:/modelisim2/modelisim2/dmdr.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/dmdr.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module DMDR
+
+Top level modules:
+	DMDR
+
+} {} {}} D:/modelisim2/modelisim2/npc.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/npc.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module npc
+
+Top level modules:
+	npc
+
+} {} {}} D:/modelisim2/modelisim2/control.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/control.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module control
+
+Top level modules:
+	control
+
+} {} {}} D:/modelisim2/modelisim2/mux.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/mux.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module mux_ALUsrc
+-- Compiling module mux_RegDst
+-- Compiling module mux_MemtoReg
+
+Top level modules:
+	mux_ALUsrc
+	mux_RegDst
+	mux_MemtoReg
+
+} {} {}} D:/modelisim2/modelisim2/alu.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/alu.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}} D:/modelisim2/modelisim2/dchufa.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/dchufa.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module Dchufa
+
+Top level modules:
+	Dchufa
+
+} {} {}} D:/modelisim2/modelisim2/im.v {1 {vlog -work work -vopt {D:\modelisim2\modelisim2\im.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module im_1k
+
+Top level modules:
+	im_1k
+
+} {} {}} D:/modelisim2/modelisim2/lb.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/lb.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module LB
+
+Top level modules:
+	LB
+
+} {} {}} D:/modelisim2/modelisim2/adr.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/adr.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module ADR
+
+Top level modules:
+	ADR
+
+} {} {}} D:/modelisim2/modelisim2/extender.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/extender.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module Extender
+
+Top level modules:
+	Extender
+
+} {} {}} D:/modelisim2/modelisim2/testbench.v {1 {vlog -work work -vopt {D:\modelisim2\modelisim2\testbench.v}
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+
+} {} {}} D:/modelisim2/modelisim2/nextstate.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/nextstate.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module nextstate
+
+Top level modules:
+	nextstate
+
+} {} {}} D:/modelisim2/modelisim2/aludr.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/aludr.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module ALUDR
+
+Top level modules:
+	ALUDR
+
+} {} {}} D:/modelisim2/modelisim2/bdr.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/bdr.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module BDR
+
+Top level modules:
+	BDR
+
+} {} {}} D:/modelisim2/modelisim2/functout.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/functout.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module functout
+
+Top level modules:
+	functout
+
+} {} {}} D:/modelisim2/modelisim2/mips.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/mips.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module mips
+
+Top level modules:
+	mips
+
+} {} {}} D:/modelisim2/modelisim2/dm.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/dm.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module dm_1k
+
+Top level modules:
+	dm_1k
+
+} {} {}} D:/modelisim2/modelisim2/gpr.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/gpr.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module gpr
+
+Top level modules:
+	gpr
+
+} {} {}} D:/modelisim2/modelisim2/pc.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/pc.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module pc
+
+Top level modules:
+	pc
+
+} {} {}} D:/modelisim2/modelisim2/ir.v {1 {vlog -work work -vopt D:/modelisim2/modelisim2/ir.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module IR
+
+Top level modules:
+	IR
+
+} {} {}}

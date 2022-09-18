@@ -1,0 +1,13 @@
+/*module exp10_1(en,clk,rst_freq,QA,QB,QC,QD,QE,QF,QG,QH,a,b,c,d,e,f,g,h,in1,in2);
+input en,clk,rst_freq;
+input[3:0]in1,in2;
+output a,b,c,d,e,f,g,h;
+output QA,QB,QC,QD,QE,QF,QG,QH;
+wire[2:0]sel;
+wire[3:0]data;
+wire clk_50MHz,clk_1Hz,clk_10Hz,clk_100Hz,clk_1KHz;
+nambscld(data,a,b,c,d,e,f,g,h);
+scan2(clk_1KHz,sel,QA,QB,QC,QD,QE,QF,QG,QH);
+exp7(rst_freq,clk,clk_1Hz,clk_10Hz,clk_100Hz,clk_1KHz);
+experiment31(en,in1,in2,sel,data);
+endmodule*/

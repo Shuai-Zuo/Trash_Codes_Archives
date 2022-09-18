@@ -1,0 +1,204 @@
+Microsoft (R) Macro Assembler Version 6.11		    05/06/20 15:05:04
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 32 00			    BUF DB 50,?,50 DUP(?)
+       0032 [
+        00
+       ]
+ 0034 49 6E 70 75 74 20			MSGIN DB 'Input Sentence:',0AH,0DH,'$'
+       53 65 6E 74 65 6E
+       63 65 3A 0A 0D 24
+ 0046 0A 0D 53 74 75 64			MSGOUT1 DB 0AH,0DH,'Student id:18074102$'
+       65 6E 74 20 69 64
+       3A 31 38 30 37 34
+       31 30 32 24
+ 005C 0A 49 6E 76 61 6C			MSGERR DB 0AH,'Invalid Input!$'
+       69 64 20 49 6E 70
+       75 74 21 24
+ 006C 0A 24 54 68 65 20			MSGOUT2 DB 0AH,'$The value of n is：$'
+       76 61 6C 75 65 20
+       6F 66 20 6E 20 69
+       73 A3 BA 24
+ 0082 0A 24 54 68 65 20			MSGOUT3 DB 0AH,'$The ITH WORD is：$'
+       49 54 48 20 57 4F
+       52 44 20 69 73 A3
+       BA 24
+ 0096 1006				NUM DW 4102D
+ 0098 01				COUNTER DB 1H
+ 0099 00				COUNTER2 DB 0
+ 009A 01				COUNTER3 DB 1
+ 009B 00				COUNTER4 DB 0
+ 009C 00				N DB 0
+ 009D				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+				    ;此处输入堆栈段代码
+ 0000				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+				    
+ 0005  8D 16 0034 R		    LEA DX,MSGIN     
+ 0009  B4 09				MOV AH,09H
+ 000B  CD 21				INT 21H
+				    
+ 000D  8D 16 0000 R		   	LEA DX,BUF     
+ 0011  B4 0A				MOV AH,0AH     
+ 0013  CD 21				INT 21H 
+					
+ 0015  8D 36 0002 R			LEA SI,BUF[2];取BUF[2]地址
+ 0019  8A 1E 0001 R			MOV BL,BUF[1];将字符串长度存入BL
+ 001D  8A 04				MOV AL,[SI]
+ 001F  3C 61				CMP AL,'a'
+ 0021  72 22				JB ERR
+ 0023  3C 7A				CMP AL,'z' 
+ 0025  77 1E				JA ERR
+ 0027				JUDGE:
+ 0027  46				INC SI
+ 0028  FE 06 0099 R			INC COUNTER2
+ 002C  8A 04				MOV AL,[SI]
+ 002E  3C 20				CMP AL,' '
+ 0030  75 03 E9 0092			JE ADD1
+ 0035  3C 61				CMP AL,'a'
+ 0037  72 0C				JB ERR
+ 0039  3C 7A				CMP AL,'z' 
+ 003B  77 08				JA ERR
+ 003D  38 1E 0099 R			CMP COUNTER2,BL
+ 0041  74 02				JE END1
+ 0043  EB E2				JMP JUDGE
+
+						
+
+ 0045				ERR:
+ 0045				END1:
+ 0045  8D 16 0046 R			LEA DX,MSGOUT1
+ 0049  B4 09				MOV AH,09H
+ 004B  CD 21				INT 21H
+ 004D  8D 16 006C R			LEA DX,MSGOUT2
+ 0051  B4 09				MOV AH,09H
+ 0053  CD 21				INT 21H
+ 0055  8D 16 006C R			LEA DX,MSGOUT2     
+ 0059  B4 09				MOV AH,09H
+ 005B  CD 21				INT 21H
+					
+ 005D  8A 16 0098 R			MOV DL,COUNTER
+ 0061  80 C2 30				ADD DL,30H
+ 0064  B4 02			    MOV AH,02H
+ 0066  CD 21			    INT 21H
+ 0068  8A 0E 0098 R			MOV CL,COUNTER
+ 006C  A1 0096 R			MOV AX,NUM
+ 006F  32 ED				XOR CH,CH
+ 0071  33 D2				XOR DX,DX
+ 0073  F7 F1				DIV CX
+ 0075  FE C4				INC AH
+					
+ 0077  80 C2 01				ADD DL,1
+ 007A  8A F2				MOV DH,DL
+ 007C  80 C2 30				ADD DL,30H
+ 007F  88 36 009C R			MOV N,DH
+				   
+ 0083  8D 16 0082 R		    LEA DX,MSGOUT3
+ 0087  B4 09				MOV AH,09H
+ 0089  CD 21				INT 21H
+ 008B  8D 36 0002 R			LEA SI,BUF[2]
+ 008F  8A 1E 0001 R			MOV BL,BUF[1]
+ 0093  4E				DEC SI
+
+ 0094				RE:
+ 0094  46				INC SI
+ 0095  8A 04				MOV AL,[SI]
+ 0097  FE 06 009B R			INC COUNTER4
+ 009B  3C 20				CMP AL,' '
+ 009D  74 18				JE DD1
+ 009F  8A 3E 009A R			MOV BH,COUNTER3
+ 00A3  38 3E 009C R			CMP N,BH
+ 00A7  75 EB				JNE RE
+ 00A9  8A 14				MOV DL,[SI]
+ 00AB  B4 02				MOV AH,02H
+ 00AD  CD 21			    INT 21H
+ 00AF  38 1E 009B R		    CMP COUNTER4,BL
+ 00B3  73 0E				JAE END2
+ 00B5  EB DD			    JMP RE
+ 00B7				DD1:
+ 00B7  FE 06 009A R			INC COUNTER3
+ 00BB  38 1E 009B R			CMP COUNTER4,BL
+ 00BF  73 02				JAE END2
+ 00C1  EB D1				JMP RE	
+					
+
+
+ 00C3				END2:
+ 00C3  B4 4C			    MOV AH,4CH
+ 00C5  CD 21			    INT 21H
+				    
+				    
+ 00C7				ADD1:
+ 00C7  FE 06 0098 R			INC COUNTER
+ 00CB  38 1E 0099 R			CMP COUNTER2,BL
+ 00CF  75 03 E9 FF71			JE END1
+ 00D4  E9 FF50				JMP JUDGE
+
+
+
+ 00D7				CODES ENDS
+				    END START
+
+
+
+
+
+
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    05/06/20 15:05:04
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 00D7	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 009D	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+ADD1 . . . . . . . . . . . . . .	L Near	 00C7	  CODES	
+BUF  . . . . . . . . . . . . . .	Byte	 0000	  DATAS	
+COUNTER2 . . . . . . . . . . . .	Byte	 0099	  DATAS	
+COUNTER3 . . . . . . . . . . . .	Byte	 009A	  DATAS	
+COUNTER4 . . . . . . . . . . . .	Byte	 009B	  DATAS	
+COUNTER  . . . . . . . . . . . .	Byte	 0098	  DATAS	
+DD1  . . . . . . . . . . . . . .	L Near	 00B7	  CODES	
+END1 . . . . . . . . . . . . . .	L Near	 0045	  CODES	
+END2 . . . . . . . . . . . . . .	L Near	 00C3	  CODES	
+ERR  . . . . . . . . . . . . . .	L Near	 0045	  CODES	
+JUDGE  . . . . . . . . . . . . .	L Near	 0027	  CODES	
+MSGERR . . . . . . . . . . . . .	Byte	 005C	  DATAS	
+MSGIN  . . . . . . . . . . . . .	Byte	 0034	  DATAS	
+MSGOUT1  . . . . . . . . . . . .	Byte	 0046	  DATAS	
+MSGOUT2  . . . . . . . . . . . .	Byte	 006C	  DATAS	
+MSGOUT3  . . . . . . . . . . . .	Byte	 0082	  DATAS	
+NUM  . . . . . . . . . . . . . .	Word	 0096	  DATAS	
+N  . . . . . . . . . . . . . . .	Byte	 009C	  DATAS	
+RE . . . . . . . . . . . . . . .	L Near	 0094	  CODES	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+
+	   0 Warnings
+	   0 Errors

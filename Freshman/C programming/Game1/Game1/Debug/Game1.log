@@ -1,5 +1,0 @@
-﻿  Game1.cpp
-f:\c assignment\game1\game1\game1.cpp(92): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
-f:\c assignment\game1\game1\game1.cpp(272): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-f:\c assignment\game1\game1\game1.cpp(366): warning C4715: “delete_on_target”: 不是所有的控件路径都返回值
-  Game1.vcxproj -> F:\C Assignment\Game1\Debug\Game1.exe

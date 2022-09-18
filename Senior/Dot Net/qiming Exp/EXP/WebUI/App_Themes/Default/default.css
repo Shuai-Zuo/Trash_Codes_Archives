@@ -1,0 +1,28 @@
+A:LINK 
+{
+	font-size: 12px;
+	color: #2754A5;
+	text-decoration: none;
+}
+A:VISITED 
+{
+	font-size: 12px;
+	color:#2754A5;
+	text-decoration: none;
+}
+A:HOVER 
+{
+	color: #A36209;
+}
+
+TD
+{
+	Font-Size:9pt;
+}
+
+BODY 
+{
+	MARGIN: 0px; 
+	BACKGROUND-COLOR: #c0c0c0
+}
+	

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MenuItem Text="快递运输管理系统" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu005.gif">
+  <MenuItem Text="票据管理" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="票据分发" NavigateUrl="~/Bill/BillDispenseCreate.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="票据查询" NavigateUrl="~/Bill/BillDispenseList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="票据销核" NavigateUrl="~/Bill/BillDetailList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+  </MenuItem>
+  <MenuItem Text="接货管理" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="货运单填写" NavigateUrl="~/Accept/CarryBillCreate.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="货运单查询" NavigateUrl="~/Accept/CarryBillList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+  </MenuItem>
+  <MenuItem Text="配车管理" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="运输合同填写" NavigateUrl="~/Dispatch/BillReturnCreate.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="运输合同查询" NavigateUrl="~/Dispatch/BillReturnList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+  </MenuItem>
+  <MenuItem Text="到货管理" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="司机回执" NavigateUrl="~/Arrive/DriverReturnList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="客户回执" NavigateUrl="~/Arrive/CustomerReturnList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="新到货物" NavigateUrl="~/Arrive/NewArriveList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+  </MenuItem>
+  <MenuItem Text="中转管理" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="公司填写" NavigateUrl="~/Transfer/CompanyInforCreate.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="公司查询" NavigateUrl="~/Transfer/CompanyInforList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="中转填写" NavigateUrl="~/Transfer/TransferInforFind.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="中转查询" NavigateUrl="~/Transfer/TransferInforList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+  </MenuItem>
+  <MenuItem Text="客户服务" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="客户投诉" NavigateUrl="~/Customer/AppealInforCreate.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="投诉处理" NavigateUrl="~/Customer/AppealInforList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="投诉历史" NavigateUrl="~/Customer/AppealInforHistory.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+  </MenuItem>
+  <MenuItem Text="应用管理" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="客户填写" NavigateUrl="~/Basic/CustomerInforCreate.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="客户查询" NavigateUrl="~/Basic/CustomerInforList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="城市信息" NavigateUrl="~/Basic/CityList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="线路信息" NavigateUrl="~/Basic/LineInforList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>      
+  </MenuItem>
+  <MenuItem Text="用户管理" NavigateUrl="~/Index.aspx" ImageUrl="Images/tu008.gif">
+    <MenuItem Text="用户填写" NavigateUrl="~/User/UserCreate.aspx" ImageUrl="Images/tu008.gif"></MenuItem>
+    <MenuItem Text="用户查询" NavigateUrl="~/User/UserList.aspx" ImageUrl="Images/tu008.gif"></MenuItem>    
+  </MenuItem>
+</MenuItem>
